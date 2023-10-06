@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- select 박스 만들기, 콤보 박스라고도 한다. -->
+    <!-- outgroup 태그 사용 -->
+    <form action="#">
+        <fieldset>
+            <legend>개인정보 입력</legend>
+            <label for="city">지역</label>
+            <select id="city" multiple >
+                <!-- value는 서버에 저장되는 값인듯. -->
+                <!-- city라는 항목에 value들이 저장 -->
+                <optgroup label="서울시">
+                    <option value="강북구">강북구</option>
+                    <option value="강남구">강남구</option>
+                    <!-- selected 는 기본값으로 설정 -->
+                    <option value="서초구" selected>서초구</option>
+                </optgroup>
+                <optgroup label="성남시" >
+                    <option value="중원구">중원구</option>
+                    <option value="분당구">분당구</option>
+                </optgroup>
+            </select>
+            <input type="reset" value = "등록">
+        </fieldset>
+    </form>
+
+    <form action="">
+        <!-- button 과 input의 차이: button은 이미지를 넣을 수 있지만, input은 타입만 지정할 수 있을 뿐 이미지 등은 넣을 수 없음 -->
+        <button type = "submit">
+            <img src="./images/facebook.png" alt="페이스북 버튼">
+            페이스북에 등록하세요
+        </button>
+    </form>
+
+    <input type="text" disabled>
+    <button type = "button" disabled>비활성화된 버튼</button>
+    <input type="text" readonly>
+    
+    <!-- checked 속성: 체크박스 만들기. 여러개의 아이템을 선택할 때 사용 -->
+    <form action="#">
+        <fieldset>
+            <legend>좋아하는 과일 선택</legend>
+            <input type="checkbox" id = "banana" name = "fruit" value = "banana">
+            <label for="banana">바나나</label>
+            <input type="checkbox" id = "apple" name = "fruit" value = "apple">
+            <label for="apple">사과</label>
+            <input type="checkbox" id = "orange" name = "fruit" value = "orange">
+            <label for="orange">오랜지</label>
+        </fieldset>
+    </form>
+
+    <form action="#">
+        <input type="tel" placeholder="전화번호를 입력하시오" required>
+        <input type="submit" value = "전송">
+        <!-- <button type = "submit">전송</button> -->
+    </form>
+</body>
+</html>

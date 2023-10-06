@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            border: 5px solid goldenrod;
+        }
+        .bg_img {
+            width: 500px;
+            height: 500px;
+            background-image: url("../images/beach.jpg");
+            border: 5px solid aqua
+        }
+
+    </style>
+</head>
+<body>
+    <!-- href: hyper refernece: 경로 지정. 경로가 명확하지 않으면 # -->
+    <!-- 아래는 외부 링크를 쓰는 방법. _blank는 새로운 페이지를 띄움 -->
+    <div class = "bg_img">
+        <h2><a href="http://naver.com" target="_blank">네이버</a></h2>    
+        <!-- 내부 링크  -->
+        <h2><a href="./ex02.html">ex2 페이지 연결</a></h2>
+        <img src = "../images/bear.png" alt = "이미지 없음">
+    </div>
+</body>
+</html>

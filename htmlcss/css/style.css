@@ -1,0 +1,16 @@
+/* h1{
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 100px;
+    background-color: black;
+    color:goldenrod;
+}
+
+div{
+    width: 200px;
+    color: yellowgreen;
+    background-color: gray;
+    padding: 0px 10px;
+    /* 안쪽 여백, 상하/좌우 순서 */

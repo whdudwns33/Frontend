@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        #container {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 0.5fr 1fr 1fr 1fr 0.5fr;
+            row-gap: 4px;
+            column-gap: 4px;
+            grid-template-areas:
+            "head-center  head-center    head-center"
+            "body-l1-lf   body-contents  body-contents  "
+            "body-l2-lf   body-contents  body-contents  "
+            "body-l3-lf   body-contents  body-contents  "
+            "foot-center  foot-center    foot-center    ";
+        }
+
+        .grid-box {
+            color: white;
+            padding: 2px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .head-center {
+            box-sizing: border-box;
+            font-size: 100px;
+            display: inline-flex;
+            background: linear-gradient(rgba(156, 50, 1, 0.986), rgb(5, 23, 189));
+            grid-area: head-center;
+        }
+
+        .body-l1-lf {
+            background: linear-gradient(120deg, rgba(255, 217, 1, 0.986), rgba(86, 49, 219, 0.986), orange);
+            grid-area: body-l1-lf;
+        }
+
+        .body-l2-lf {
+            background: linear-gradient(5deg, rgba(7, 5, 34, 0.986), rgba(48, 34, 97, 0.986) ,blue);
+            grid-area: body-l2-lf;
+        }
+
+        .body-l3-lf {
+            background: linear-gradient(rgba(49, 1, 82, 0.986),rgba(64, 5, 202, 0.986));
+            grid-area: body-l3-lf;
+        }
+
+        .body-contents {
+            background: linear-gradient(rgba(56, 1, 255, 0.986), rgb(44, 0, 73), rgba(64, 5, 202, 0.986));
+            grid-area: body-contents;
+        }
+
+        .foot-center {
+            background: linear-gradient(rgba(64, 5, 202, 0.986), rgb(89, 111, 231));
+            grid-area: foot-center;
+        }
+
+        .haize > img {
+            position: absolute;
+            display: flex;
+            border-radius: 5%;
+            border: 2px solid black;
+            width: 250px;
+            height: 250px;
+            top: 22%;
+            left: 40%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="grid-box head-center">
+            Shut Up & Groove
+        </div>
+        <div class="grid-box body-l1-lf">저녁에 친구들이랑</div>
+        <div class="grid-box body-l2-lf">밤에 자기전에</div>
+        <div class="grid-box body-l3-lf">이른 아침 새벽 감성</div>
+        <div class="grid-box body-contents">
+            <p class = "">헤이즈, 딘, 백예린, 치즈, 태연, 펀치, 폴킴, 쏠. 이미지 + 추천곡</p>
+            <div class = "haize">
+                <img src="./images/헤이즈.jpg" alt="헤이즈">
+            </div>
+        </div>
+        <div class="grid-box foot-center">저작권</div>
+    </div>
+
+
+</body>
+</html>

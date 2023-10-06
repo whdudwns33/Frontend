@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        li:first-child {
+            color: red;
+        }
+        li:last-child {
+            color: blue;
+        }
+
+        /* 구조적 부모의 모든 자식 요소 중 n번째 자식 요소가 맞으면 선택 
+            두번째를 지정하면 두번째 요소여야 함*/
+        p:nth-child(1) {
+            color: goldenrod;
+            font-size: 1.2em;
+        }
+        /* 구조적 부모 요소의 자식 요소 중 n번째로 등장하는 요소 선택  */
+        p:nth-of-type(2) {
+            color:rgb(226, 55, 55);
+        }
+    </style>
+</head>
+<!-- body는 부모 -->
+<body>
+    <!-- 구조적 가상 클래스 선택자 : 요소의 부모, 자식, 형제, 인접 요소를 기준으로 스타일 적용 -->
+    <!-- <ul>
+        <li>test1</li>
+        <li>test2</li>
+        <li>test3</li>
+        <li>test4</li>
+        <li>test5</li>
+    </ul> -->
+
+    <p>bad boy - 레드벨벳</p>
+    <!-- div 구조적 부모 -->
+    <div>
+        <p>비도 오고 그래서 - 헤이즈</p>
+        <span>love Lee - 악뮤</span>
+        <span>은하수 다방 - 악뮤</span>
+        <p>잊어버리지마 - 크러시</p>
+        <!-- p(잊어버리지마)자체는 p의 순서로 두번째로 나오지만 span이 두번째로 나오기 때문에 선택이 안된다. -->
+    </div>
+    <div>
+        <p>D - 딘, 개코</p>
+        <span>사건의 지평선 - 윤하</span>
+        <span>하루살이 - 딘, 설리</span>
+        <p>허전해 - 폴킴</p>
+    </div>
+</body>
+</html>
