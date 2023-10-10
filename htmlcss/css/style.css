@@ -98,8 +98,8 @@
         position: absolute;
         display: flex;
         width: 100%;
-        height: 25%;
-        top: 27vh;
+        height: auto;
+        top: 65%;
         /* 투명도 설정 : opacity*/
         opacity: 0.3;
     }
@@ -115,44 +115,30 @@
 
     #container {
         width: 100%;
-        /* eight: 100vh;를 사용하면 해당 요소의 높이를 현재 브라우저 창의 높이와 동일하게 만듭니다.
-        즉, 반응형 디자인이 만들어집니다. */
-        height: 400vh;
+        height: 200vh;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr 0.5fr;
+        grid-template-columns: repeat(2, 1.5fr);
+        grid-template-rows: 1fr, 3fr, 3fr, 3fr, 3fr, 1fr ;
         row-gap: 4px;
         column-gap: 4px;
         grid-template-areas:
         "head-center  head-center                   "
-
         "body-contents  body-contents               "
-        "body-contents  body-contents               "
-        "body-contents  body-contents               "
-
         "body-l1-lf   body-l1-lf                    "
-        "body-l1-lf   body-l1-lf                    "
-
         "body-l2-lf   body-l2-lf                    "
-        "body-l2-lf   body-l2-lf                    "
-
         "body-l3-lf   body-l3-lf                    "
-        "body-l3-lf   body-l3-lf                    "
-
-        "foot-center  foot-center                   "
         "foot-center  foot-center                   ";
     }
 
     .grid-box {
         color: white;
-        padding: 2px;
         display: grid;
         justify-content: center;
         align-items: center;
     }
 
     .head-center {
-        font-size: 90px;
+        font-size: 50px;
         display: inline-flex;
         background: linear-gradient(rgba(156, 50, 1, 0.986), rgb(5, 23, 189));
         grid-area: head-center;
@@ -162,9 +148,6 @@
     .body-l1-lf {
         background: linear-gradient(90deg, rgba(103, 1, 255, 0.986), orange, rgba(103, 1, 255, 0.986) );
         grid-area: body-l1-lf;
-        /* body-l1-lf 클래스를 가진 div 요소에 position: relative;를 
-        추가하여 상대 위치 지정을 활성화합니다. 
-        그리고 내부에 있는 city 클래스를 가진 div 요소에도 스타일을 추가합니다. */
         position: relative;
     }
 
@@ -209,7 +192,6 @@
         opacity: 0.14;
     }
 
-    /* .body-l2-lf : 해당 클래스를   */
     .city {
         position: absolute;
         width: 100%;
@@ -221,8 +203,8 @@
         position: absolute;
         display: flex;
         width: 100%;
-        height: 25%;
-        top: 27vh;
+        height: auto;
+        top: 65%;
         /* 투명도 설정 : opacity*/
         opacity: 0.3;
     }
