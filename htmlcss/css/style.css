@@ -59,7 +59,7 @@
     }
 
     .body-contents {
-        background-color: rgb(58, 57, 57);
+        background-color: gray;
         /* background: linear-gradient(rgba(56, 1, 255, 0.986), rgb(44, 0, 73) 50%, rgba(64, 5, 202, 0.986)); */
         grid-area: body-contents;
     }
@@ -99,7 +99,7 @@
         display: flex;
         width: 100%;
         height: auto;
-        top: 65%;
+        top: 0%;
         /* 투명도 설정 : opacity*/
         opacity: 0.3;
     }
@@ -115,17 +115,24 @@
 
     #container {
         width: 100%;
-        height: 200vh;
+        height: 300vh;
         display: grid;
         grid-template-columns: repeat(2, 1.5fr);
-        grid-template-rows: 1fr, 3fr, 3fr, 3fr, 3fr, 1fr ;
-        row-gap: 4px;
+        grid-template-rows: 0.5fr, 1.5fr, 1.5fr, 1.5fr, 1.5fr, 0.5fr ;
         column-gap: 4px;
         grid-template-areas:
         "head-center  head-center                   "
         "body-contents  body-contents               "
+        "body-contents  body-contents               "
+        "body-contents  body-contents               "
+        "body-l1-lf   body-l1-lf                    "
+        "body-l1-lf   body-l1-lf                    "
         "body-l1-lf   body-l1-lf                    "
         "body-l2-lf   body-l2-lf                    "
+        "body-l2-lf   body-l2-lf                    "
+        "body-l2-lf   body-l2-lf                    "
+        "body-l3-lf   body-l3-lf                    "
+        "body-l3-lf   body-l3-lf                    "
         "body-l3-lf   body-l3-lf                    "
         "foot-center  foot-center                   ";
     }
@@ -145,15 +152,21 @@
         position: relative;
     }
 
+    .body-contents {
+        background-color: rgb(58, 57, 57);
+        grid-area: body-contents;
+        position: relative;   
+    }
+
     .body-l1-lf {
-        background: linear-gradient(90deg, rgba(103, 1, 255, 0.986), orange, rgba(103, 1, 255, 0.986) );
+        background: linear-gradient(180deg, rgb(5, 23, 189), orange, rgba(7, 5, 34, 0.986));
         grid-area: body-l1-lf;
         position: relative;
     }
 
 
     .body-l2-lf {
-        background: linear-gradient(5deg, rgba(7, 5, 34, 0.986), rgba(48, 34, 97, 0.986) ,blue);
+        background: linear-gradient(180deg, rgba(7, 5, 34, 0.986), rgba(48, 34, 97, 0.986) ,rgba(49, 1, 82, 0.986));
         grid-area: body-l2-lf;
         position: relative;
     }
@@ -164,18 +177,37 @@
         position: relative;
     }
 
-    .body-contents {
-        background-color: rgb(58, 57, 57);
-        /* background: linear-gradient(rgba(56, 1, 255, 0.986), rgb(44, 0, 73) 50%, rgba(64, 5, 202, 0.986)); */
-        grid-area: body-contents;
-    }
 
     .foot-center {
         background: linear-gradient(rgba(64, 5, 202, 0.986), rgb(89, 111, 231));
         grid-area: foot-center;
     }
 
-    /* .body-l2-lf */
+    /* body */
+    .celeb {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .celeb-button {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        
+    }
+
+    .celeb-button > img {
+        position: absolute;
+        display: flex;
+        width: 100%;        
+        height: 100%;
+        
+    }
+
+
+    /* .body-l1-lf */
     .person {
         position: absolute;
         width: 100%;
@@ -187,8 +219,6 @@
         display: flex;
         width: 100%;
         height: 100%;
-        
-        /* 투명도 설정 : opacity*/
         opacity: 0.14;
     }
 
@@ -204,7 +234,7 @@
         display: flex;
         width: 100%;
         height: auto;
-        top: 65%;
+        top: 0%;
         /* 투명도 설정 : opacity*/
         opacity: 0.3;
     }
