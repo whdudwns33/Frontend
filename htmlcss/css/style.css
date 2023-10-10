@@ -34,7 +34,7 @@
     .head-center {
         font-size: 90px;
         display: inline-flex;
-        background: linear-gradient(rgba(255, 145, 0, 0.986), rgb(5, 23, 189));
+        background: linear-gradient(rgba(255, 94, 0, 0.986), rgb(5, 23, 189));
         grid-area: head-center;
         position: relative;
     }
