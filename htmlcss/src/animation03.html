@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation-name: move;
+            animation-duration: 10s;
+            animation-fill-mode: forwards;
+            animation-play-state: paused;
+        }
+
+        @keyframes move {
+            from {
+                left: 0;
+            }
+            to {
+                left: 300px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <button id = "start">시작</button>
+        <button id = "pause">일시정지</button>
+    </div>
+    <!-- 자바 스크립트 영역 -->
+    <script>
+        // 자바 스크립트 영역
+        const box = document.querySelector("div");
+        document.getElementById("start").addEventListener("click", function() {
+            box.style.animationPlayState = "running";
+        });
+        document.getElementById("pause").addEventListener("click", function() {
+            box.style.animationPlayState = "paused";
+        });
+    </script>
+</body>
+</html>

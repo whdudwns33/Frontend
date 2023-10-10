@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 전환(transition): 요소의 속성이 변경될 때 부드럽게 변경되는 효과를 제공 -->
+    <style>
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            /* 전환효과 */
+            /* transition-property: 어떤 특성에 적용 */
+            transition-property: all;
+            transition-delay: 0.2s;
+            transition-duration: 1s;
+            /* transition: 0.2s 0.2s all; */
+        }
+
+        .container {
+            padding: 10px;
+            color: white;
+            border: 1px solid black;
+        }
+        .bar {
+            width: 100px;
+            background-color: red;
+            transition-property: width;
+            transition-duration: 1s;
+            margin-bottom: 10px;
+        }
+        .container:hover .bar {
+            width: 250px;
+        }
+        .bar:nth-child(1) {
+            transition-timing-function: cubic-bezier();
+        }
+        .bar:nth-child(2) {
+            transition-timing-function: ease;
+        }
+        .bar:nth-child(3) {
+            transition-timing-function: ease-in;
+        }
+        .bar:nth-child(4) {
+            transition-timing-function: ease-out;
+        }
+        .bar:nth-child(5) {
+            transition-timing-function: ease-in-out;
+        }
+
+        .red:hover {
+            width: 1600px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="red"></div>
+    <div class="container">
+        <div class="bar">liner</div>
+        <div class="bar">ease</div>
+        <div class="bar">ease-in</div>
+        <div class="bar">ease-out</div>
+        <div class="bar">ease-in-out</div>
+    </div>
+</body>
+</html>
