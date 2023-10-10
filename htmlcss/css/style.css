@@ -1,16 +1,105 @@
-/* h1{
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    width: 400px;
-    height: 100px;
-    background-color: black;
-    color:goldenrod;
+body {
+    padding: 0%;
+    margin: 0%;
 }
 
-div{
-    width: 200px;
-    color: yellowgreen;
-    background-color: gray;
-    padding: 0px 10px;
-    /* 안쪽 여백, 상하/좌우 순서 */
+#container {
+    width: 100%;
+    /* eight: 100vh;를 사용하면 해당 요소의 높이를 현재 브라우저 창의 높이와 동일하게 만듭니다.
+    즉, 반응형 디자인이 만들어집니다. */
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 0.5fr;
+    row-gap: 4px;
+    column-gap: 4px;
+    grid-template-areas:
+    "head-center  head-center    head-center"
+    "body-l1-lf   body-contents  body-contents  "
+    "body-l2-lf   body-contents  body-contents  "
+    "body-l3-lf   body-contents  body-contents  "
+    "foot-center  foot-center    foot-center    ";
+}
+
+.grid-box {
+    color: white;
+    padding: 2px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.head-center {
+    font-size: 90px;
+    display: inline-flex;
+    background: linear-gradient(rgba(156, 50, 1, 0.986), rgb(5, 23, 189));
+    grid-area: head-center;
+    position: relative;
+}
+
+.body-l1-lf {
+    background: linear-gradient(90deg, rgba(103, 1, 255, 0.986), orange, rgba(103, 1, 255, 0.986) );
+    grid-area: body-l1-lf;
+    /* body-l1-lf 클래스를 가진 div 요소에 position: relative;를 
+    추가하여 상대 위치 지정을 활성화합니다. 
+    그리고 내부에 있는 city 클래스를 가진 div 요소에도 스타일을 추가합니다. */
+    position: relative;
+}
+
+
+.body-l2-lf {
+    background: linear-gradient(5deg, rgba(7, 5, 34, 0.986), rgba(48, 34, 97, 0.986) ,blue);
+    grid-area: body-l2-lf;
+    position: relative;
+}
+
+.body-l3-lf {
+    background: linear-gradient(rgba(49, 1, 82, 0.986),rgba(64, 5, 202, 0.986));
+    grid-area: body-l3-lf;
+    position: relative;
+}
+
+.body-contents {
+    background-color: rgb(58, 57, 57);
+    /* background: linear-gradient(rgba(56, 1, 255, 0.986), rgb(44, 0, 73) 50%, rgba(64, 5, 202, 0.986)); */
+    grid-area: body-contents;
+}
+
+.foot-center {
+    background: linear-gradient(rgba(64, 5, 202, 0.986), rgb(89, 111, 231));
+    grid-area: foot-center;
+}
+
+/* .body-l2-lf */
+.person {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.person > img {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    
+    /* 투명도 설정 : opacity*/
+    opacity: 0.14;
+}
+
+/* .body-l2-lf : 해당 클래스를   */
+.city {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* .body-l2-lf */
+.city > img {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: 39%;
+    /* 투명도 설정 : opacity*/
+    opacity: 0.3;
+}
