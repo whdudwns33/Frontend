@@ -32,7 +32,7 @@
     .head-center {
         font-size: 90px;
         display: inline-flex;
-        background: linear-gradient(rgba(255, 94, 0, 0.986), rgb(5, 23, 189));
+        background: linear-gradient(black, darkblue, rgb(76, 0, 255));
         grid-area: head-center;
         position: relative;
     }
@@ -169,7 +169,7 @@
     .head-center {
         font-size: 50px;
         display: inline-flex;
-        background: linear-gradient(rgba(156, 50, 1, 0.986), rgb(5, 23, 189));
+        background: linear-gradient(black, darkblue, rgb(5, 23, 189));
         grid-area: head-center;
         position: relative;
     }
@@ -182,7 +182,7 @@
     }
 
     .body-l1-lf {
-        background: linear-gradient(180deg, rgb(5, 23, 189), orange, rgba(7, 5, 34, 0.986));
+        background: linear-gradient(180deg, rgb(5, 23, 189), rgba(7, 5, 34, 0.986));
         grid-area: body-l1-lf;
         position: relative;
     }
