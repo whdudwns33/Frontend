@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Roboto:wght@100&display=swap');
+
+        body {
+            font-family: 'Pixelify Sans', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            width: 100vw;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            border: 1px solid black;
+            width: 304px;
+            height: 390px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        
+        section {
+            justify-content: center;
+            position: relative;
+        }
+
+        .login {
+            position: relative;
+            margin-top: 28px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            border: 2px solid black;
+            width: 228px;
+            height: 44px;
+            color: black;
+        }
+        .loginbutton {
+            position: absolute;
+            top: 60px;
+            left: -230px;
+            background-color: #373F3C;
+            display: flex;
+            width: 228px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+        .loginbutton {
+            font-family: 'Pixelify Sans', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            font-weight: bold;
+        }
+
+        .login1 {
+            position: absolute;
+            top: 140px;
+        }
+        .id {
+            width: 228px;
+            height: 44px;
+            background-color: #eaeaea;
+            border: 0;
+        }
+
+        .login2 {
+            position: absolute;
+            top: 200px;
+            width: 228px;
+            height: 44px;
+        }
+        .pw {
+            width: 228px;
+            height: 44px;
+            background-color: #eaeaea;
+            border: 0;
+        }
+
+        p {
+            font-family: 'Pixelify Sans', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            color: #504444;
+            font-weight: bold;
+        }
+
+        
+
+
+      </style>
+</head>
+<body>
+    <div class="container">
+        <section>
+            <a class = "login" href="#">
+                <p>Log in with Google</p>
+            </a>
+            <br/>
+            <p class = "or">or</p>
+        </section>
+        <section class = "login1">
+            <input class = "id" type="text" placeholder="USERID" >
+        </section>
+        <section class = "login2">
+            <input class = "pw" type="text" placeholder="USERPW" >
+        </section>
+        <section>
+            <a class = "login2" href="#">
+                <p class = "loginbutton">Log in with Google</p>
+            </a>
+        </section>
+    </div>
+    
+    
+</body>
+</html>

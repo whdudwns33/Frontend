@@ -7,8 +7,6 @@
 
     #container {
         width: 100%;
-        /* eight: 100vh;를 사용하면 해당 요소의 높이를 현재 브라우저 창의 높이와 동일하게 만듭니다.
-        즉, 반응형 디자인이 만들어집니다. */
         height: 150vh;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -60,14 +58,38 @@
 
     .body-contents {
         background-color: gray;
-        /* background: linear-gradient(rgba(56, 1, 255, 0.986), rgb(44, 0, 73) 50%, rgba(64, 5, 202, 0.986)); */
         grid-area: body-contents;
+        position: relative;
     }
 
     .foot-center {
         background: linear-gradient(rgba(64, 5, 202, 0.986), rgb(89, 111, 231));
         grid-area: foot-center;
     }
+
+
+    /* body */
+    .celeb {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .celeb-button {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+    }
+
+    .celeb-button > img {
+        position: absolute;
+        display: flex;
+        width: 100%;        
+        height: auto;
+    }
+
 
     /* .body-l2-lf */
     .person {
@@ -118,13 +140,13 @@
         height: 300vh;
         display: grid;
         grid-template-columns: repeat(2, 1.5fr);
-        grid-template-rows: 0.5fr, 1.5fr, 1.5fr, 1.5fr, 1.5fr, 0.5fr ;
+        grid-template-rows: 0.5fr, /*1.5fr,*/ 1.5fr, 1.5fr, 1.5fr, 0.5fr ;
         column-gap: 4px;
         grid-template-areas:
         "head-center  head-center                   "
+        /* "body-contents  body-contents               "
         "body-contents  body-contents               "
-        "body-contents  body-contents               "
-        "body-contents  body-contents               "
+        "body-contents  body-contents               " */
         "body-l1-lf   body-l1-lf                    "
         "body-l1-lf   body-l1-lf                    "
         "body-l1-lf   body-l1-lf                    "
@@ -153,6 +175,7 @@
     }
 
     .body-contents {
+        display: none;
         background-color: rgb(58, 57, 57);
         grid-area: body-contents;
         position: relative;   
@@ -183,44 +206,17 @@
         grid-area: foot-center;
     }
 
-    /* body */
-    .celeb {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
-
-    .celeb-button {
-        position: absolute;
-        display: flex;
-        width: 100%;
-        height: 100%;
-        
-    }
-
-    .celeb-button > img {
-        position: absolute;
-        display: flex;
-        width: 100%;        
-        height: 100%;
-        
-    }
+    
 
 
     /* .body-l1-lf */
     .person {
+        display: none;
         position: absolute;
         width: 100%;
         height: 100%;
     }
 
-    .person > img {
-        position: absolute;
-        display: flex;
-        width: 100%;
-        height: 100%;
-        opacity: 0.14;
-    }
 
     .city {
         position: absolute;

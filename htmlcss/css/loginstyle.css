@@ -1,0 +1,108 @@
+/* flex 사용하기 */
+
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    color: white;
+    width: 100vw;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#container {
+    background: linear-gradient(black, darkblue, rgb(76, 0, 255));
+    /* background-image: url(../images/star.png); */
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 100px;
+    font-weight: bold;
+    min-width: 400px;
+}
+
+.title:hover {
+    scale: 150%;
+    transition-delay: 0.2s;
+    transition-duration: 1.5s;
+    color: blueviolet;
+}
+
+.moon {
+    border: 5px solid rgb(255, 246, 167);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 100px;
+    background-color: gold;
+    transition-duration: 2s;
+}
+.moon:hover {
+    background-color: rgb(255, 238, 0);
+    scale: 180%;
+}
+
+.logbox {
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 5px dashed rgb(100, 100, 119);
+    width: 800px;
+    height: 400px;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.id {
+    margin: 50px auto;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 0px;
+    background-color: rgb(205, 222, 245);
+    border-radius: 10px;
+}
+.pw {
+    margin: 50px auto;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 0px;
+    background-color: rgb(205, 222, 245);
+    border-radius: 10px;
+}
+.log-in {
+    margin: 60px auto;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 40px;
+    font-weight: bold;
+    color: WHITE;
+}
+
+a {
+    text-decoration: none;
+}
+
+.footer {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    position: relative;
+}
+
+.jyj {
+    margin-bottom: 50px;
+    margin-left: 45.5%;
+}

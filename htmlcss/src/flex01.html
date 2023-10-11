@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .flex-container {
+            /* 플렉스는 아이템이 수평으로 쌓인다. 기본은 static으로 수직으로 쌓임 */
+            display: flex;
+
+            /* 플렉스는 기본적으로 행의 왼쪽에서 오른 쪽으로 이동 */
+            /* flex-direction: row-reverse; */
+            flex-direction: column;
+
+            /* 플렉스는 아이템을 nowrap으로 관리. nowrap은 컨텐츠가 아이템의 크기보다 크게될 때까지 아이템의 비율을 조정 */
+            /* wrap이면 자동으로 크기(아이템의 크기를 보호해줌)를 유지해줌 */
+            flex-wrap: nowrap;
+            
+            /* direction과 wrap을 한번에 주는 효과 */
+            flex-flow: row wrap;
+            
+            /* 주축(direction방향과 같은 축)에 대한 정렬 */
+            justify-content: space-evenly;
+            /* 교차 축의 정렬 */
+            align-items: center;
+
+            width: 300px;
+            height: 200px;
+            background-color: beige;
+            border: 1px solid black;
+        }
+
+        .flex-item {
+            width: 80px;
+            /* 아이템에서 높이를 주지 않는다면 기본적으로 모두 채운다 */
+            height: 50px;
+            margin: 2px;
+            text-align: center;
+            border: 1px solid black;
+            color: white;
+            background-color: orange;
+        }
+
+        .flex-item:nth-child(2n) {
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">item1</div>
+        <div class="flex-item">item2</div>
+        <div class="flex-item">item3</div>
+        <div class="flex-item">item4</div>
+    </div>
+</body>
+</html>
