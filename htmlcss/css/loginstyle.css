@@ -14,7 +14,6 @@ body {
 
 #container {
     background: linear-gradient(black, darkblue, rgb(76, 0, 255));
-    /* background-image: url(../images/star.png); */
 }
 
 .header {
