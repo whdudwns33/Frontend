@@ -20,10 +20,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .title {
-    font-size: 100px;
+    font-size: 8vw;
     font-weight: bold;
     min-width: 400px;
 }
@@ -37,14 +38,18 @@ body {
 
 .star-moon {
     position:relative;
+    height: 200px;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
 }
-
 .moon {
+    margin-left: 50px;
+    position: absolute;
     border: 5px solid rgb(255, 246, 167);
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    margin-left: 100px;
     background-color: gold;
     transition-duration: 2s;
 }
@@ -52,7 +57,6 @@ body {
     background-color: rgb(255, 238, 0);
     scale: 180%;
 }
-
 .star1 {
     position: absolute;
     border: 1px solid rgb(255, 246, 167);
@@ -63,11 +67,10 @@ body {
     height: 10px;
     background-color: rgb(255, 230, 0);
     z-index: 1;
-    animation-name: star;
+    animation-name: star1;
     animation-duration: 12s;
     animation-iteration-count: infinite;
 }
-
 .star2 {
     position: absolute;
     border: 1px solid rgb(255, 246, 167);
@@ -78,11 +81,10 @@ body {
     height: 10px;
     background-color: rgb(255, 230, 0);
     z-index: 1;
-    animation-name: star;
+    animation-name: star1;
     animation-duration: 12s;
     animation-iteration-count: infinite;
 }
-
 .star3 {
     position: absolute;
     border: 1px solid rgb(255, 246, 167);
@@ -93,11 +95,10 @@ body {
     height: 10px;
     background-color: rgb(255, 230, 0);
     z-index: 1;
-    animation-name: star;
+    animation-name: star1;
     animation-duration: 12s;
     animation-iteration-count: infinite;
 }
-
 .star4 {
     position: absolute;
     border: 1px solid rgb(255, 246, 167);
@@ -108,11 +109,10 @@ body {
     height: 10px;
     background-color: rgb(255, 230, 0);
     z-index: 1;
-    animation-name: star;
+    animation-name: star2;
     animation-duration: 12s;
     animation-iteration-count: infinite;
 }
-
 .star5 {
     position: absolute;
     border: 1px solid rgb(255, 246, 167);
@@ -123,11 +123,10 @@ body {
     height: 10px;
     background-color: rgb(255, 255, 255);
     z-index: 1;
-    animation-name: star;
+    animation-name: star2;
     animation-duration: 12s;
     animation-iteration-count: infinite;
 }
-
 .star6 {
     position: absolute;
     border: 1px solid rgb(255, 246, 167);
@@ -138,14 +137,11 @@ body {
     height: 10px;
     background-color: rgb(255, 255, 255);
     z-index: 1;
-    animation-name: star;
+    animation-name: star2;
     animation-duration: 12s;
     animation-iteration-count: infinite;
 }
-
-
-
-.star8 {
+.star7 {
     position: absolute;
     border: 1px solid rgb(255, 246, 167);
     border-radius: 50%;
@@ -155,12 +151,11 @@ body {
     height: 10px;
     background-color: rgb(255, 255, 255);
     z-index: 1;
-    animation-name: star;
+    animation-name: star3;
     animation-duration: 12s;
     animation-iteration-count: infinite;
 }
-
-.star9 {
+.star8 {
     position: absolute;
     border: 1px solid rgb(255, 246, 167);
     border-radius: 50%;
@@ -170,12 +165,11 @@ body {
     height: 10px;
     background-color: rgb(255, 224, 224);
     z-index: 1;
-    animation-name: star;
+    animation-name: star3;
     animation-duration: 12s;
     animation-iteration-count: infinite;
 }
-
-.star10 {
+.star9 {
     position: absolute;
     border: 1px solid rgb(255, 246, 167);
     border-radius: 50%;
@@ -185,13 +179,13 @@ body {
     height: 10px;
     background-color: rgb(182, 214, 255);
     z-index: 1;
-    animation-name: star;
+    animation-name: star3;
     animation-duration: 12s;
     animation-iteration-count: infinite;
-}
+} 
 
 
-@keyframes star {
+@keyframes star1 {
     0% {
         opacity: 1;
     }
@@ -211,13 +205,53 @@ body {
         opacity: 1;
     }
 }
+@keyframes star2 {
+    0% {
+        opacity: 0.2;
+    }
+    20% {
+        opacity: 0.6;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0.6;
+    }
+    80% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+@keyframes star3 {
+    0% {
+        opacity: .6;
+    }
+    20% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    60% {
+        opacity: 0.2;
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
 
 
 .logbox {
     margin: 0 auto;
     margin-top: 100px;
     border: 5px dashed rgb(100, 100, 119);
-    width: 800px;
+    width: 70%;
     height: 400px;
     display: flex;
     /* justify-content: center;
@@ -262,30 +296,34 @@ a {
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 50px;
+    font-size: 3vw;
     position: relative;
     overflow: hidden;
-    border: 10px solid black;
 }
 
 .mount {
     left: -10%;
     top: 0%;
     border-radius: 50%;
-    width: 600px;
-    height: 400px;
+    width: 700px;
+    height: 500px;
     background-color: rgb(51, 47, 47);
     position: absolute;
     border: 10px solid rgb(53, 49, 49);
 }
 
+.abc {
+    z-index: 10;
+}
+
 .jyj {
+    z-index: 10;
     margin: 50px auto;
     margin-top: 0;
     transition-duration: 0.1s;
     transition-duration: 1.5s;
 }
-
 .jyj:hover {
     scale: 140%;
+    color: bisque;
 }
