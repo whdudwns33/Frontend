@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            width: 60vw;
+            background:linear-gradient(black, darkblue, blue);
+            grid-template-columns: 3, 100px;
+            grid-template-rows: 3, 1fr;
+            gap: 10px;
+            grid-template-areas: 
+            "header1    header2     header3     "
+            "content1   content2    content3    "
+            "footer     .           .           "
+            ;
+            border: 1px solid gray;
+            color: white;
+        }
+
+        .item {
+            display: flex;
+            flex-flow: column wrap;
+            border: 3px solid white;
+            border-radius: 30px;
+            margin: 2px;
+            background: linear-gradient(darkblue, purple);
+            min-width: 300px;
+        }
+
+        h1 {
+            margin:5% auto;
+            font-weight: bolder;
+        }
+
+        img {
+            margin: 5% auto;
+            width: 60%;
+            height: 200px;
+            border-radius: 30px;
+        }
+
+        p {
+            margin: 5% auto;
+        }
+
+        .grid-header1 {
+            grid-area: header1;
+            background-color: white;
+        }
+        .grid-header2 {
+            grid-area: header2;
+            background-color: white;
+        }
+        .grid-header3 {
+            grid-area: header3;
+            background-color: white;
+        }  
+        .grid-content1 {
+            grid-area: content1;
+            background-color: white;
+        }
+        .grid-content2 {
+            grid-area: content2;
+            background-color: white;
+        }
+        .grid-content3 {
+            grid-area: content3;
+            background-color: white;
+        }
+        .grid-footer {
+            grid-area: footer;
+            background-color: white;
+        }
+        
+
+
+
+    </style>
+</head>
+<body>
+    <div class = "container">
+
+        <div class="item grid-header1">
+            <h1>사진 제목</h1>
+            <img src="../images/cup-1.jpg" alt="1">
+            <p>사진설명</p>
+        </div>
+        <div class="item grid-header2">
+            <h1>사진 제목</h1>
+            <img src="../images/cup-2.jpg" alt="2">
+            <p>사진설명</p>
+        </div>
+        <div class="item grid-header3">
+            <h1>사진 제목</h1>
+            <img src="../images/cup-3.jpg" alt="3">
+            <p>사진설명</p>
+        </div>
+
+        <div class="item grid-content1">
+            <h1>사진 제목</h1>
+            <img src="../images/cup-4.jpg" alt="4">
+            <p>사진설명</p>
+        </div>
+        <div class="item grid-content2">
+            <h1>사진 제목</h1>
+            <img src="../images/cup-5.jpg" alt="5">
+            <p>사진설명</p>
+        </div>
+        <div class="item grid-content3">
+            <h1>사진 제목</h1>
+            <img src="../images/cup-6.jpg" alt="6">
+            <p>사진설명</p>
+        </div>
+        
+        <div class="item grid-footer">
+            <h1>사진 제목</h1>
+            <img src="../images/cup-7.jpg" alt="7">
+            <p>사진설명</p>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -316,6 +316,16 @@ a {
     z-index: 10;
 }
 
+.site-child {
+    transition-duration: .2s;
+    
+}
+
+.site-child:nth-child(1n):hover {
+    scale: 150%;
+    color: blanchedalmond;
+}
+
 .jyj {
     z-index: 10;
     margin: 50px auto;
@@ -324,6 +334,6 @@ a {
     transition-duration: 1.5s;
 }
 .jyj:hover {
-    scale: 140%;
-    color: bisque;
+    scale: 200%;
+    color: blanchedalmond;
 }

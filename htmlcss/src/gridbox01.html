@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+        .grid-container {
+            height: 50vh;
+            width: 50vh;
+            background-color: black;
+            display: grid;
+            /* 그리드의 열에 대한 틀을 설정 */
+            grid-template-columns: 200px 200px 200px; /*3열 만들기*/
+            /* grid-template-columns: 1fr 3fr 1fr; */
+            /* grid-template-columns: repeat(3, 1fr); */
+            /* auto-fit: 자동 채우기, 컨테이너 기준으로 비율을 맞춤 */
+            /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) ; */
+            /* auto-fill: 자동 채우기, 아이템이 기준. 잘 모르겠음 */
+            /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) ; */
+            /* grid-template-rows: 100px 100px; 2행 만들기 */
+            /* grid-template-rows: repeat(3, minmax(40px, auto)); */
+            /* row-gap: 10px;
+            column-gap: 100px; */
+            gap: 2px;
+
+            /* 다 채우기 */
+            /* align-items: stretch; */
+            /* 중간 정렬 */
+            /* align-items: center; */
+            /* 기준축 정렬 */
+            justify-content: center;
+        }
+
+        .grid-box {
+            background-color: blue;
+            border: 2px solid white;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .grid-box:nth-child(2n) {
+            background-color: orange;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-box">그리드 박스1</div>
+        <div class="grid-box">그리드 박스2</div>
+        <div class="grid-box">그리드 박스3</div>
+        <div class="grid-box">그리드 박스4</div>
+        <div class="grid-box">그리드 박스5</div>
+    </div>
+
+</body>
+</html>
