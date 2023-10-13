@@ -347,7 +347,6 @@
         padding: 10px;
         width: 80%;
         height: 80%;
-        display: flex;
         overflow: hidden;
     }
     .item-set {
@@ -440,19 +439,15 @@
     }
 
 
-
-   
-
-
+    /* 가수 정보 contents */
     .content {
         grid-area: content;
         background: linear-gradient(rgb(0, 0, 49), rgba(49, 1, 82, 0.986), rgba(64, 5, 202, 0.986), rgb(0, 45, 97) );
-        border: 5px solid red;
         padding: 20px;
+        min-height: 600px;
     }
 
     .music {
-        border: 3px solid red;
         width: 100%;
         height: 100%;
         display: flex;
@@ -462,13 +457,15 @@
     }
 
     .musician {
-        border: 3px solid red;
         width: 30%;
         height: 30%;
         color: antiquewhite;
         display: flex;
         justify-content: center;
         text-align: center;
+        min-height: 150px;
+        border: 4px solid black;
+        border-radius: 10%;
     }
     .musician1 {
         background-image: url(../연예인사진/백예린.jpg);
@@ -502,9 +499,11 @@
         background-image: url(../연예인사진/딘.jpg);
         background-size: cover;
     }
+    .musician9 {
+        border: none;
+    }
     
     .musician > .text {
-        border: 3px solid red;
         width: 100%;
         font-size: 100%;
         color: ivory;
