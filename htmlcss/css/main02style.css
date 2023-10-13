@@ -1,5 +1,5 @@
 /* 웹 화면 구현 */
-@media screen and (min-width:768px) {
+@media screen and (min-width:769px) {
     * {
         padding: 0%;
         margin: 0%;
@@ -107,8 +107,7 @@
     .click {
         position: absolute;
         display: none;
-        width: 60vw;
-        height: 20vw;
+        height: 100%;
         font-size: 5vw;
         opacity: 0;
     }
@@ -448,7 +447,88 @@
     .content {
         grid-area: content;
         background: linear-gradient(rgb(0, 0, 49), rgba(49, 1, 82, 0.986), rgba(64, 5, 202, 0.986), rgb(0, 45, 97) );
+        border: 5px solid red;
+        padding: 20px;
     }
+
+    .music {
+        border: 3px solid red;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .musician {
+        border: 3px solid red;
+        width: 30%;
+        height: 30%;
+        color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .musician1 {
+        background-image: url(../연예인사진/백예린.jpg);
+        background-size: cover;
+    }
+    .musician2 {
+        background-image: url(../연예인사진/아이유.jpg);
+        background-size: cover;
+    }
+    .musician3 {
+        background-image: url(../연예인사진/태연.jpg);
+        background-size: cover;
+    }
+    .musician4 {
+        background-image: url(../연예인사진/헤이즈.jpg);
+        background-size: cover;
+    }
+    .musician5 {
+        background-image: url(../연예인사진/치즈.jpg);
+        background-size: cover;
+    }
+    .musician6 {
+        background-image: url(../연예인사진/펀치.jpg);
+        background-size: cover;
+    }
+    .musician7 {
+        background-image: url(../연예인사진/폴킴.jpg);
+        background-size: cover;
+    }
+    .musician8 {
+        background-image: url(../연예인사진/딘.jpg);
+        background-size: cover;
+    }
+    
+    .musician > .text {
+        border: 3px solid red;
+        width: 100%;
+        font-size: 100%;
+        color: ivory;
+        background-color: rgb(65, 65, 65);
+        display: none;
+        opacity: 0.0;
+    } 
+    .musician:nth-child(1n):hover .text {
+        display: flex;
+        flex-direction: column;
+        opacity: 0.5;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     .footer {
         grid-area: footer;
