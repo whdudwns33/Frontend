@@ -1,8 +1,12 @@
 /* 웹 화면 구현 */
-@media screen and (min-width:769px) {
+@media only screen and (min-width:769px) {
     * {
         padding: 0%;
         margin: 0%;
+    }
+
+    .phone {
+        display: none;
     }
 
     ul {
@@ -86,6 +90,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
+        text-align: center;
     }
     .city > img {
         position: absolute;
@@ -103,6 +108,7 @@
         display: flex;
         justify-content: space-evenly;
         list-style: none;
+        z-index: 15;
     }
     .click {
         position: absolute;
@@ -329,6 +335,7 @@
         display: flex;
         justify-content: space-evenly;
         list-style: none;
+        z-index: 15;
     }
 
 
@@ -446,7 +453,6 @@
         padding: 20px;
         min-height: 600px;
     }
-
     .music {
         width: 100%;
         height: 100%;
@@ -500,8 +506,8 @@
         background-size: cover;
     }
     .musician9 {
-        border: none;
-    }
+        background-image: url(../연예인사진/쏠.jpg);
+        background-size: cover;    }
     
     .musician > .text {
         width: 100%;
@@ -517,6 +523,11 @@
         opacity: 0.5;
     }
 
+    .footer {
+        grid-area: footer;
+        background: linear-gradient(rgb(0, 45, 97), rgb(89, 111, 231) );
+    }
+}
 
 
 
@@ -525,20 +536,590 @@
 
 
 
+@media only screen and (max-width:768px) {
+
+    * {
+        padding: 0%;
+        margin: 0%;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a  {
+        font-size: 20%;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        z-index: 4;
+    }
+
+    nav {
+        position: relative;
+    }
+    li {
+        overflow: hidden;
+    }
+
+    .sider1 {
+        display: none;
+    }
+
+    .sider2 {
+        display: none;
+    }
+
+    .sider3 {
+        display: none;
+    }
+
+    .content {
+        display: none;
+    }
 
 
 
+    #container {
+        font-weight: bold;
+        box-sizing: border-box;
+        overflow: hidden;
+        width: 105%;
+        height: 200vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        grid-template-areas:
+        "header         header          "     
+        "sider3         sider3          "
+        "sider3         sider3          "
+        "sider1         sider1          "
+        "sider1         sider1          "
+        "sider2         sider2          "
+        "sider2         sider2          "
+        "footer         footer          ";
+    }
+
+    .grid-box {
+        color:whitesmoke;
+    }
+
+    .header {
+        grid-area: header;
+        background: linear-gradient(black, rgb(0, 0, 49));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 8vw;
+        font-weight: bold;
+        transition-delay: 0.2s;
+        transition-duration: 1.2s;
+    }
+    .header > p {
+        margin-top: 50px;
+
+    }
+    .header:hover {
+        color: blueviolet;
+        scale: 130%;
+    }
+
+    /* 모바일 콘텐츠영역 메뉴 */
+    .change  {
+        position: absolute;
+        color: azure;
+        z-index: 20;
+        display: none;
+    }
+    /* 최상단 네비바 */
+    .phone-head {
+        width: 105%;
+        height: 50px;
+        position: absolute;
+        z-index: 15;
+        justify-content: center;
+        display: none;
+    }
+    .ph-navbar {
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+    }
+    .ph-nav {
+        width: 11%;
+        border-radius: 10%;
+        margin-left: 3px;
+        display: flex;
+    }
+    .ph-nav > a {
+        border: 3px solid red;
+        width: 100%;
+        opacity: 0;
+    }
+    
+
+    /* 우측 네비바 */
+    .phone {
+        width: 70px;
+        height: 60vh;
+        position: absolute;
+        right: 0%;
+        top: 20%;
+        display: flex;
+        justify-content: center;
+        z-index: 3;
+    }
+    .phone-navbar {
+        position: fixed;
+        width: 50px;
+        height: 60vh;        
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .phone-nav {
+        height: 20%;
+        display: flex;
+        margin-top: 5px;
+        border-radius: 10%;
+    }
+    .phone-nav1 {
+        background-image: url(/htmlcss/연예인사진/백예린.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* background-position:50%; */
+    }
+    .phone-nav2 {
+        background-image: url(/htmlcss/연예인사진/아이유.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* background-position:50%; */
+    }
+    .phone-nav3 {
+        background-image: url(/htmlcss/연예인사진/태연.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:50%;
+    }
+    .phone-nav4 {
+        background-image: url(/htmlcss/연예인사진/헤이즈.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:50%;
+    }
+    .phone-nav5 {
+        background-image: url(/htmlcss/연예인사진/펀치.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:50%;
+    }
+    .phone-nav6 {
+        background-image: url(/htmlcss/연예인사진/치즈.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:50%;
+    }
+    .phone-nav7 {
+        background-image: url(/htmlcss/연예인사진/딘.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:50%;
+    }
+    .phone-nav8 {
+        background-image: url(/htmlcss/연예인사진/폴킴.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:50%;
+    }
+    .phone-nav9 {
+        background-image: url(/htmlcss/연예인사진/쏠.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:50%;
+    }
+    .phone-nav > a {
+        width: 100%;
+        opacity: 0;
+    }
+    
+    
+
+
+
+
+    /* 이미지 자동 변경 */
+    .sider3 {
+        grid-area: sider3;
+        background: linear-gradient(rgb(0, 0, 49) ,rgba(49, 1, 82, 0.986));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .celeb {
+        padding: 10px;
+        width: 80%;
+        height: 80%;
+        overflow: hidden;
+    }
+    .item-set {
+        width: 2000px;
+        height: 100%;
+        display: flex;
+        animation-name: item-ani;
+        animation-duration: 40s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    .items {
+        border: 3px solid white;
+        margin: 10px;
+        min-width: 180px;
+        width: 25%;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .items > a {
+        border: 3px solid white;
+        font-size: 400%;
+        opacity: 0;
+    }
+    @keyframes item-ani {
+        from {
+            transform: translate(0,0);
+        }
+        to {
+            transform: translate(-1450px,0);
+        }
+    }
+    .item-set:hover {
+        animation-play-state: paused;
+    }
+    .item1 {
+        background-image: url(../연예인사진/백예린.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .item2 {
+        width: 25%;
+        background-image: url(../연예인사진/아이유.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .item3 {
+        width: 25%;
+        background-image: url(../연예인사진/태연.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .item4 {
+        width: 25%;
+        background-image: url(../연예인사진/치즈.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .item5 {
+        width: 25%;
+        background-image: url(../연예인사진/펀치.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .item6 {
+        width: 25%;
+        background-image: url(../연예인사진/쏠.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .item7 {
+        width: 25%;
+        background-image: url(../연예인사진/헤이즈.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .item8 {
+        width: 25%;
+        background-image: url(../연예인사진/폴킴.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .item9 {
+        width: 25%;
+        background-image: url(../연예인사진/딘.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+
+
+    /* 도시 이미지, 별, 목록 */
+    .sider1 {
+        grid-area: sider1;
+        background: linear-gradient(rgba(49, 1, 82, 0.986),rgba(64, 5, 202, 0.986));
+        display: flex;
+        font-size: 30px;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .city {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    .city > img {
+        position: absolute;
+        width: 70%;
+        top: 30%;
+        opacity: 0.4;
+        transition-duration: 1s;
+    }
+    .city > img:hover {
+        scale: 140%;
+    }
+    .navy1 {
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        z-index: 10;
+    }
+    .click {
+        position: absolute;
+        display: none;
+        height: 100%;
+        font-size: 10vw;
+        opacity: 0;
+    }
+    .singer:hover .click {
+        transform: translateY(2%) ;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        z-index: 10;
+    }
+    .singer-style {
+        transition-delay: 0.1s;
+        transition-duration: 1.0s;
+    }
+    .singer-style:hover {
+        color: bisque;
+    }
+    @keyframes star1 {
+        0% {
+            opacity: 1;
+        }
+        20% {
+            opacity: 0.6;
+        }
+        40% {
+            opacity: 0.2;
+        }
+        60% {
+            opacity: 0.2;
+        }
+        80% {
+            opacity: 0.6;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes star2 {
+        0% {
+            opacity: 0.2;
+        }
+        20% {
+            opacity: 0.6;
+        }
+        40% {
+            opacity: 1;
+        }
+        60% {
+            opacity: 0.6;
+        }
+        80% {
+            opacity: 0.2;
+        }
+        100% {
+            opacity: 0.2;
+        }
+    }
+    @keyframes star3 {
+        0% {
+            opacity: .6;
+        }
+        20% {
+            opacity: 1;
+        }
+        40% {
+            opacity: 0.6;
+        }
+        60% {
+            opacity: 0.2;
+        }
+        80% {
+            opacity: 0.6;
+        }
+        100% {
+            opacity: 0.8;
+        }
+    }
+    .star1 {
+        position: absolute;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 50%;
+        top: 18%;
+        left: 90%;
+        width: 5px;
+        height: 5px;
+        background-color: rgb(255, 255, 255);
+        z-index: 1;
+        animation-name: star1;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    }
+    .star2 {
+        position: absolute;
+        border: 1px solid rgb(255, 246, 167);
+        border-radius: 50%;
+        top: 93%;
+        left: 80%;
+        width: 5px;
+        height: 5px;
+        background-color: rgb(255, 255, 255);
+        z-index: 1;
+        animation-name: star1;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    }
+    .star3 {
+        position: absolute;
+        border: 1px solid rgb(245, 242, 213);
+        border-radius: 50%;
+        top: 20%;
+        left: 70%;
+        width: 5px;
+        height: 5px;
+        background-color: rgb(255, 255, 255);
+        z-index: 1;
+        animation-name: star1;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    }
+    .star4 {
+        position: absolute;
+        border: 1px solid rgb(255, 246, 167);
+        border-radius: 50%;
+        top: 90%;
+        left: 60%;
+        width: 5px;
+        height: 5px;
+        background-color: rgb(255, 230, 0);
+        z-index: 1;
+        animation-name: star2;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    }
+    .star5 {
+        position: absolute;
+        border: 1px solid rgb(255, 246, 167);
+        border-radius: 50%;
+        top: 25%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: rgb(255, 254, 181);
+        z-index: 1;
+        animation-name: star2;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    }
+    .star6 {
+        position: absolute;
+        border: 1px solid rgb(255, 246, 167);
+        border-radius: 50%;
+        top: 88%;
+        left: 40%;
+        width: 5px;
+        height: 5px;
+        background-color: rgb(255, 255, 255);
+        z-index: 1;
+        animation-name: star2;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    }
+    .star7 {
+        position: absolute;
+        border: 1px solid rgb(255, 246, 167);
+        border-radius: 50%;
+        top: 19%;
+        left: 30%;
+        width: 5px;
+        height: 5px;
+        background-color: rgb(255, 255, 255);
+        z-index: 1;
+        animation-name: star3;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    }
+    .star8 {
+        position: absolute;
+        border: 1px solid rgb(255, 246, 167);
+        border-radius: 50%;
+        top: 95%;
+        left: 20%;
+        width: 5px;
+        height: 5px;
+        background-color: rgb(255, 224, 224);
+        z-index: 1;
+        animation-name: star3;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    }
+    .star9 {
+        position: absolute;
+        border: 1px solid rgb(255, 246, 167);
+        border-radius: 50%;
+        top: 27%;
+        left: 10%;
+        width: 5px;
+        height: 5px;
+        background-color: rgb(182, 214, 255);
+        z-index: 1;
+        animation-name: star3;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    } 
+
+
+    
+    /* 사이드2, 별똥별 */
+    .sider2 {
+        grid-area: sider2;
+        background: linear-gradient(rgba(64, 5, 202, 0.986), rgb(0, 45, 97));
+        display: flex;
+        font-size: 30px;
+        position: relative;
+        justify-content: space-evenly;
+    }
+    .navy2 {
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+    }
 
     .footer {
         grid-area: footer;
         background: linear-gradient(rgb(0, 45, 97), rgb(89, 111, 231) );
     }
-
-
-
-
-
-
-
-
 }
