@@ -52,10 +52,13 @@ body {
     height: 100px;
     background-color: gold;
     transition-duration: 2s;
+    box-shadow: 0 0 100px white;
+
 }
 .moon:hover {
     background-color: rgb(255, 238, 0);
     scale: 180%;
+    box-shadow: 0 0 20px white;
 }
 .star1 {
     position: absolute;
@@ -182,6 +185,9 @@ body {
     animation-name: star3;
     animation-duration: 12s;
     animation-iteration-count: infinite;
+}
+.star {
+    box-shadow: 0 0 20px white;
 } 
 
 
