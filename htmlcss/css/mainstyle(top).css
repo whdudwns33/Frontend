@@ -779,23 +779,32 @@
     }
 
     /* 모바일 콘텐츠영역 메뉴 */
-    /* 우측 네비바 */
-    .phone {
-        width: 70px;
-        height: 60vh;
+    /* 최상단 네비바  */
+    .phone-head {
+        width: 105%;
+        height: 50px;
         position: absolute;
-        right: 0%;
-        top: 20%;
+        z-index: 200;
+        justify-content: center;
         display: flex;
-        z-index: 3;
     }
-    .phone-navbar {
+    .ph-navbar {
         position: fixed;
-        width: 50px;
-        height: 60vh;        
+        width: 100%;
+        height: 50px;
         display: flex;
-        flex-direction: column;
-        text-align: center;
+        justify-content: center;
+    }
+    .ph-nav {
+        width: 11%;
+        border-radius: 10%;
+        margin-left: 3px;
+        display: flex;
+    }
+    .ph-nav > a {
+        border: 3px solid red;
+        width: 100%;
+        opacity: 0; 
     }
     .phone-nav {
         height: 20%;
