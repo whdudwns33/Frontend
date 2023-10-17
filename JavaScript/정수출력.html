@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: 100px;
+
+        }
+
+        span {
+            border: 5px solid red;
+            font-size: 30px;
+            background-color: black;
+            color: aliceblue;
+            justify-content: center;
+            text-align: center;
+        }
+        .nbyn {
+            display: inline-block;
+            text-align: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <script>
+            let n = Number( prompt("정수 입력 : ") );
+            for(let i = 1; i <= n * n; i++) {
+                document.write("<span class=nbyn>" + i + " " + "</span>");
+                if(i % n == 0) document.write("<br>");
+            }
+        </script>
+    </div>
+</body>
+</html>
