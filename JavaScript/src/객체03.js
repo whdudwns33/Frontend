@@ -81,3 +81,10 @@ console.log(pass);
 
 let local = persons.filter(person => person.city === "제주");
 console.log(local);
+
+
+// map() 메서드 : 배열의 각 요소를 변환하고 결과를 새로운 배열로 반환. 리액트에서 가장 많이 사용
+// 필터는 요소를 하나씩 반환하고 맵은 전체를 반환
+const numbers = [1,2,3,4,5,6,7,8,9,10]; // 배열 안에는 객체가 들어갈 수 있음
+const sqr = numbers.map(e => num*num);
+console.log(sqr);

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        button {
+            text-decoration: none;
+            border: none;
+            background: none;
+            font-size: 30px;
+            display: inline-block;
+        }
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 3px dashed black;
+            position: absolute;
+            border-radius: 5%;
+            margin-top: 10px;
+        }
+        .green {
+            background-color: green;
+            color: white;
+        }
+        .orange {
+            background-color: orange;
+            color: white;
+        }
+        .purple {
+            background-color: purple;
+            color: white;
+        }
+        .green-box {
+            background-color: green;
+            opacity: 0;
+        }
+        .orange-box {
+            background-color: orange;
+            opacity: 0;
+        }
+        .purple-box {
+            background-color: purple;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button class = "green"  onclick="getGreen()" >green</button>
+        <button class = "orange" onclick="getOrange()">orange</button>
+        <button class = "purple" onclick="getPurple()">purple</button>
+    </div>
+    <div>
+        <div class = "box green-box"></div>
+        <div class = "box orange-box"></div>
+        <div class = "box purple-box"></div>
+    </div>
+    <script src="../src/이벤트예제.js"></script>
+</body>
+</html>

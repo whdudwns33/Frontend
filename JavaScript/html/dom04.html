@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #text {
+            font-size: 30px;
+        }
+        .active {
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .red-color {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">글자를 입력 합니다.</p>
+    <div>
+        <p>내용을 입력합니다.</p>
+        <a href="https://google.co.kr">구굴</a>
+    </div>
+    <script>
+        // 스타일 조작하기
+        const pe1 = document.querySelector("#text");
+        pe1.style.backgroundColor = "orange";
+        pe1.style.color = "white";
+        pe1.style.display = "flex";
+        pe1.style.width = "400px";
+
+
+        const pe2 = document.querySelector("div");
+        pe2.style.color = "gray";
+        pe2.style.fontSize = "40px";
+        pe2.style.backgroundColor = "darkblue";
+        pe2.style.width = "400px";
+
+        pe1.classList.add("active", "red-color");
+
+
+        // 메서드 속성으로 조작하기
+        const a1 = document.querySelector("a");
+        const href = a1.getAttribute("href");   // 속성 명을 읽어 옴
+        a1.setAttribute("href", "https://naver.com" );
+        a1.innerHTML = "네이버";
+
+        
+    </script>    
+</body>
+</html>

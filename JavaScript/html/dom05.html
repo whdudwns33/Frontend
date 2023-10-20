@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" name = "frm">
+        <input type="text" name = "id">
+        <input type="password" name = "pw">
+    </form>
+
+    <form action="#">
+        <label for="apple"><input type="checkbox" id = "apple" value="apple"> apple</label>
+        <label for="banana"><input type="checkbox" id = "banana" value="banana"> banana</label>
+        <label for="orange"><input type="checkbox" id = "orange" value="orange"> orange</label>
+        <label for="melon"><input type="checkbox" id = "melon" value="melon"> melon</label>       
+
+        <label for="apple"><input type="radio"  id = "apple" value="apple"> apple</label>
+        <label for="banana"><input type="radio" id = "banana" value="banana"> banana</label>
+        <label for="orange"><input type="radio" id = "orange" value="orange"> orange</label>
+        <label for="melon"><input type="radio" id = "melon" value="melon"> melon</label>      
+    </form>
+
+    <script>
+        // const a1 = document.createElement("a"); // 생성
+        // document.body.appendChild(a1);          // 연결
+        // a1.innerHTML = "a태그 추가";
+        // a1.setAttribute("href", "https://naver.com");
+
+
+        // from 태그
+        document.frm.id.value = "졸려워요";
+        document.frm.pw.value = "sphqwe123"
+
+        const ck = document.querySelectorAll("[type = 'checkbox']");
+        for (let i = 0; i < ck.length; i++ ) {
+            ck[i].checked = true
+        }
+
+        const ck1 = document.querySelectorAll("[type = 'radio']");
+        for (let i = 0; i < ck1length; i++ ) {
+            ck[i].checked = true
+        }
+
+        const ck2 = document.querySelectorAll("[type = 'radio']");
+        for (let i = 0; i < ck2.length; i++ ) {
+            // ck[i].checked = true
+        }
+    </script>
+</body>
+</html>

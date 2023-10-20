@@ -12,7 +12,7 @@ function getAge() {
         }
     }
     if (Number(idNum.charAt(7)) === 1) {
-        document.getElementById("gender").innerHTML = "남자";
+        document.getElementById("gender").innerHTML = "<p class = 'test'>남자 </p>";
         }
     else {
         document.getElementById("gender").innerHTML = "여자";

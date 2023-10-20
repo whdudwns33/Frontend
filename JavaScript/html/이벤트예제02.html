@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        button {
+            text-decoration: none;
+            border: none;
+            background: none;
+            color: black;
+            background-color: beige;
+            font-weight: bold;
+            opacity: 0.3;
+        }
+
+        .image {
+            display: flex;
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-image: url(/잇지.jpeg);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .text-button {
+            margin-top: 330px;
+            position: absolute;
+        }
+        .text {
+            opacity: 0;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class = "image">
+            <button class = "text-button" onclick="getText()">상세 설명 보기</button>
+        </div>
+    </div>
+    <div class = "text">
+    <p class = >asdasdasd</p>
+        <button class = "close-button" onclick="getClose()">상세 설명 닫기</button>
+    </div>
+    <script>
+        function getText() {
+            const text = document.querySelector(".text");
+            text.style.opacity = "1";
+            const bnt1 = document.querySelector(".text-button");
+            bnt1.style.opacity = "0";
+            bnt1.style.display = "none";
+        }
+
+        function getClose() {
+            const open = document.querySelector(".text-button");
+            open.style.opacity = ".3";
+            open.style.display = "flex";
+            const close = document.querySelector(".text");
+            close.style.opacity = "0";
+        }
+
+    </script>
+</body>
+</html>
