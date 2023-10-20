@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>클릭</button>
+    <input>키보드</input>
+    <a href="https://www.naver.com">네이버 이동</a>
+    <a href="https://www.daum.net">다음 이동</a>
+    <input type="text" name="username">
+    <button type="submit">Submit</button>
+    <script>
+        const btn = document.querySelector("button");
+        btn.addEventListener("click", function(event) {
+            // 좌표값 보기
+            // console.log(event.type);
+            // console.log(`clientX:${event.clientX}`);
+            // console.log(`clientY :${event.clientY }`);
+            // console.log(`pageX:${event.pageX}`);
+            // console.log(`pageY:${event.pageY}`);
+            // console.log(`screenX:${event.screenX}`);
+            // console.log(`screenY :${event.screenY }`);
+            // console.log("---------------------------")
+        });
+
+        // 키보드 이벤트
+        const input = document.querySelector("input");
+        input.addEventListener("keydown", function(e) {
+            console.log(`키보드 눌림 확인 : ${e.keyCode}`);
+        })
+
+
+        // 이벤트 취소하기
+        const aEls=document.querySelectorAll("a");
+        for(let i = 0; i <aEls.length; i++){
+            aEls[i].addEventListener("click", function(e){
+            // 기본 이벤트 취소
+            e.preventDefault();
+            });
+        }  
+        // 이벤트 취소하기02
+        const form = document.getElementById('myForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // 폼 제출 기본 동작 막기
+            const username = form.elements.username.value;
+            // 입력된 사용자 이름을 사용하여 다른 작업 수행
+            document.querySelector('input').value = "";
+        });
+    </script>
+</body>
+</html>
