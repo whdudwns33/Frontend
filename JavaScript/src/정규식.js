@@ -1,77 +1,116 @@
+let cnt = 0;
+
 
 function getId() {
     const id = document.querySelector("#ID").value;
     const idTest = /^\w{8,20}$/;
-    let rst = idTest.test(id);
-    id.value =  "";
-    if (rst === true) {
-        document.querySelector(".ok1").style.display = "flex";
-        document.querySelector(".no1").style.display = "none";
+    let rstId = idTest.test(id);
+    if (rstId === true) {
+        const rstElement = document.getElementById("rstId");
+        rstElement.innerText = "확인";
+        rstElement.style.color = "green";
+        return true;
     }
     else {
-        document.querySelector(".no1").style.display = "flex";
-        document.querySelector(".ok1").style.display = "none";
+        const rstElement = document.getElementById("rstId");
+        rstElement.innerText = "다시 입력하시오.";
+        rstElement.style.color = "red";
+        return false;
     }
 }
 
 function getPw() {
     const pw = document.querySelector("#PW").value;
     const pwTest = /^[\w!@#%&*]{8,20}$/;
-    let rst1 = pwTest.test(pw);
-    pw.value =  "";
-    if (rst1 === true) {
-        document.querySelector(".ok2").style.display = "flex";
-        document.querySelector(".no2").style.display = "none";
+    let rstPw = pwTest.test(pw);
+    if (rstPw === true) {
+        const rstElement = document.getElementById("rstPw");
+        rstElement.innerText = "확인";
+        rstElement.style.color = "green";
+        return true;
     }
     else {
-        document.querySelector(".no2").style.display = "flex";
-        document.querySelector(".ok2").style.display = "none";
+        const rstElement = document.getElementById("rstPw");
+        rstElement.innerText = "다시 입력하시오.";
+        rstElement.style.color = "red";
+        return false;
     }
 }
 
 function getEmail() {
     const email = document.querySelector("#EMAIL").value;
     const emailTest = /^([a-z]+\d*)+(\.?\w+)+@\w+(\.\w{2,3})+$/;
-    const rst2 = emailTest.test(email);
-    email.value =  "";
-    if (rst2 === true) {
-        document.querySelector(".ok3").style.display = "flex";
-        document.querySelector(".no3").style.display = "none";
+    const rstEmail = emailTest.test(email);
+    if (rstEmail === true) {
+        const rstElement = document.getElementById("rstEmail");
+        rstElement.innerText = "확인";
+        rstElement.style.color = "green";
+        return true;
     }
     else {
-        document.querySelector(".no3").style.display = "flex";
-        document.querySelector(".ok3").style.display = "none";
+        const rstElement = document.getElementById("rstEmail");
+        rstElement.innerText = "다시 입력하시오.";
+        rstElement.style.color = "red";
+        return false;
     }
 }
 
 function getPhone() {
     const phone = document.querySelector("#PHONE").value;
     const phoneTest = /\d{2,3}-\d{3,4}-\d{4}/g;
-    const rst3 = phoneTest.test(phone);
-    phone.value =  "";
-    if (rst3 === true) {
-        document.querySelector(".ok4").style.display = "flex";
-        document.querySelector(".no4").style.display = "none";
+    const rstPhone = phoneTest.test(phone);
+    if (rstPhone === true) {
+        const rstElement = document.getElementById("rstPhone");
+        rstElement.innerText = "확인";
+        rstElement.style.color = "green";
+        return true;
     }
     else {
-        document.querySelector(".no4").style.display = "flex";
-        document.querySelector(".ok4").style.display = "none";
+        const rstElement = document.getElementById("rstPhone");
+        rstElement.innerText = "다시 입력하시오.";
+        rstElement.style.color = "red";
+        return false;
     }
 }
 
 function getJoin(e) {  
     switch (e) {
-        case e == 1 :
+        case 1:
             getId();
-        case e == 2 :
+            if (getId() === true) {
+                cnt++;
+            }
+            break;
+        case 2:
             getPw();
-        case e == 3 :
+            if (getPw() === true) {
+                cnt++;
+            }
+            break;
+        case 3:
             getEmail();
-        case e == 4 :
+            if (getEmail() === true) {
+                cnt++;
+            }
+            break;
+        case 4:
             getPhone();    
+            if (getPhone() === true) {
+                cnt++;
+            }
+            break;
     }     
-    console.log(checkList);
+    finalRst1 = document.getElementById("finalButton1");
+    finalRst2 = document.getElementById("finalButton2");
+    if (cnt === 4) {
+        finalRst1.innerText = "회원가입";
+    }
+    else {
+        finalRst2.innerText = "회원가입";
+    }
 }
 
-
+function getRst() {
+    alert("완료")
+}
 
