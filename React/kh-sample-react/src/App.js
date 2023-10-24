@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import "./App.css";
+import Section from "./Section.jsx";
+import MyComponent from "./MyCOmponent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MyComponent name="배고픈 북극곰" age={330}>
+        {" "}
+        집으로 돌아가세요.{" "}
+      </MyComponent>
+      <MyComponent name="뜨거 거석" age={400}>
+        {" "}
+        집으로 돌아가세요.{" "}
+      </MyComponent>
     </div>
   );
 }
