@@ -1,0 +1,54 @@
+@media only screen and (min-width: 1441px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .container {
+    margin: 0 auto;
+    width: 1500px;
+    height: 50vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    min-width: 700px;
+  }
+  .left {
+    width: 40%;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 450px;
+  }
+  .image {
+    width: 80%;
+    background-color: aliceblue;
+    height: 40%;
+    display: flex;
+  }
+  .photo {
+    border: 3px solid red;
+    width: 50%;
+  }
+  .text {
+    border: 3px solid blueviolet;
+    width: 50%;
+  }
+
+  .right {
+    background-color: blue;
+    width: 60%;
+    min-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .change {
+    background-color: aliceblue;
+    width: 80%;
+    height: 80%;
+  }
+  .input-box {
+  }
+}

@@ -7,8 +7,8 @@ import Say from "./Say";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <App />
-  <Say />
+  <App />
+  // <Say />
 );
 
 reportWebVitals();
