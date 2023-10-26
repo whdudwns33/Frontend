@@ -1,16 +1,22 @@
-import { Fragment } from "react";
+// import { Fragment } from "react";
 import "./App.css";
-import Section from "./Section.jsx";
-import MyComponent from "./MyCOmponent";
-import Clock from "./Clock";
-import EventPractice from "./onChange";
-import EvevtHandler from "./eventHandler";
-import FruitSelect from "./Select";
-import RadioButton from "./RadioBox";
-import Table from "./Table";
-import TableMap from "./TableMap";
-import CreateRef from "./UseRef";
-import Login from "./Test";
+// import Section from "./Section.jsx";
+// import MyComponent from "./MyCOmponent";
+// import Clock from "./Clock";
+// import EventPractice from "./onChange";
+// import EvevtHandler from "./eventHandler";
+// import FruitSelect from "./Select";
+// import RadioButton from "./RadioBox";
+// import Table from "./Table";
+// import TableMap from "./TableMap";
+// import CreateRef from "./UseRef";
+// import UserList from "./UserList";
+// import TodoList from "./TodoList";
+// import Counter from "./Hooks";
+// import InputData from "./Test";
+// import MemberInfo from "./useEffect";
+// import Counter2 from "./useReducer";
+import Study from "./Study";
 
 function App() {
   return (
@@ -33,7 +39,14 @@ function App() {
     // <Table />
     // <TableMap />
     // <CreateRef />
-    <Login />
+    // <Login />
+    // <UserList />
+    // <TodoList />
+    // <Counter />
+    // <InputData />
+    // <MemberInfo />
+    // <Counter2 />
+    <Study />
   );
 }
 

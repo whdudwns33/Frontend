@@ -1,114 +1,84 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./App.css";
-import imgLogo from "./images/tier_logo.png";
-import imgBottom from "./images/nedbank_s.png";
+import { useState } from "react";
 
-const Login = () => {
-  // 키보드 입력
-  const [inputId, setInputId] = useState("");
-  const [inputPw, setInputPw] = useState("");
-
-  // 오류 메시지
-  const [idMessage, setIdMessage] = useState("");
-  const [pwMessage, setPwMessage] = useState("");
-
-  // 유효성 검사
-  const [isId, setIsId] = useState("");
-  const [isPw, setIsPw] = useState("");
-
-  const onChangId = (e) => {
-    setInputId(e.target.value);
-    if (e.target.value.length < 5 || e.target.value.length > 12) {
-      setIdMessage("5자리 이상 12자리 미만으로 입력해 주세요.");
-      setIsId(false);
-    } else {
-      setIdMessage("올바른 형식 입니다.");
-      setIsId(true);
-    }
-  };
-  const onChangePw = (e) => {
-    const passwordRegex =
-      /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    const passwordCurrent = e.target.value;
-    setInputPw(passwordCurrent);
-    if (!passwordRegex.test(passwordCurrent)) {
-      setPwMessage("숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!");
-      setIsPw(false);
-    } else {
-      setPwMessage("안전한 비밀번호에요 : )");
-      setIsPw(true);
-    }
-  };
-  const onClickLogin = () => {
-    console.log("clock login");
-  };
-
+const NameCardPrn = (props) => {
   return (
-    <div>
-      <div className="container">
-        <div className="item1">
-          <img src={imgLogo} alt="Logo" />
-        </div>
-        <div className="item2">
-          <input
-            className="input"
-            placeholder="아이디"
-            value={inputId}
-            onChange={onChangId}
-          />
-        </div>
-        <div className="hint">
-          {inputId.length > 0 && (
-            <span className={`message ${isId ? "success" : "error"}`}>
-              {idMessage}
-            </span>
-          )}
-        </div>
-        <div className="item2">
-          <input
-            className="input"
-            placeholder="패스워드"
-            value={inputPw}
-            onChange={onChangePw}
-          />
-        </div>
-        <div className="hint">
-          {inputPw.length > 0 && (
-            <span className={`message ${isPw ? "success" : "error"}`}>
-              {pwMessage}
-            </span>
-          )}
-        </div>
-        <div className="item3">
-          <label>
-            <input className="check" type="checkbox" id="test1" name="scales" />
-            <span>Stay Signed in</span>
-          </label>
-          <span>Forgot Your ID/Password?</span>
-        </div>
-        <div className="item2">
-          {isId && isPw ? (
-            <button className="enable_button" onClick={onClickLogin}>
-              SING IN
-            </button>
-          ) : (
-            <button className="disable_button" onClick={onClickLogin}>
-              SING IN
-            </button>
-          )}
-        </div>
-        <div className="signup">
-          <Link to="/Signup" className="link_style">
-            <span>Sign Up</span>
-          </Link>
-        </div>
-        <div className="bdlogo">
-          <img src={imgBottom} alt="NedBank" />
-        </div>
-      </div>
-    </div>
+    <>
+      <h3>명함 정보 출력</h3>
+      <p>이름 : {props.nameCard.name}</p>
+      <p>직책 : {props.nameCard.position}</p>
+      <p>회사 : {props.nameCard.company}</p>
+      <p>주소 : {props.nameCard.addr}</p>
+      <p>메일 : {props.nameCard.email}</p>
+      <p>전화 : {props.nameCard.phone}</p>
+    </>
   );
 };
 
-export default Login;
+const NameCard = () => {
+  const [nameCard, setNameCard] = useState({
+    name: "",
+    position: "",
+    company: "",
+    addr: "",
+    email: "",
+  });
+  const [submit, setSubmit] = useState(false);
+  const onChange = (key, value) => {
+    // 계산된 속성명은 ES6에서 추가되었으며 []안에 표현식을 넣으면 됩니다.
+    setNameCard({ ...nameCard, [key]: value });
+  };
+  const onSubmit = () => {
+    setSubmit(true);
+  };
+
+  return (
+    <>
+      <h1>회원 정보 가입</h1>
+      <input
+        type="text"
+        placeholder="이름 입력"
+        value={nameCard.name}
+        onChange={(e) => onChange("name", e.target.value)}
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="직책 입력"
+        value={nameCard.position}
+        onChange={(e) => onChange("position", e.target.value)}
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="회사 입력"
+        value={nameCard.company}
+        onChange={(e) => onChange("company", e.target.value)}
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="주소 입력"
+        value={nameCard.addr}
+        onChange={(e) => onChange("addr", e.target.value)}
+      />
+      <br />
+      <input
+        type="email"
+        placeholder="메일 입력"
+        value={nameCard.email}
+        onChange={(e) => onChange("email", e.target.value)}
+      />
+      <br />
+      <input
+        type="tel"
+        placeholder="폰 입력"
+        value={nameCard.phone}
+        onChange={(e) => onChange("phone", e.target.value)}
+      />
+      <br />
+      <button onClick={onSubmit}>제출</button>
+      {submit && <NameCardPrn nameCard={nameCard} />}
+    </>
+  );
+};
+export default NameCard;
