@@ -1,10 +1,12 @@
 import "./App.css";
-import StyledComponent from "./StyledComponent.jsx";
+// import StyledComponent from "./StyledComponent.jsx";
+import ControllInfo from "./MiniPropject/ComponentEx.jsx";
 
 function App() {
   return (
     <>
-      <StyledComponent />
+      {/* <StyledComponent /> */}
+      <ControllInfo />
     </>
   );
 }
