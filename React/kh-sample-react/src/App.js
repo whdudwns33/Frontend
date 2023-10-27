@@ -1,5 +1,6 @@
 // import { Fragment } from "react";
 import "./App.css";
+import Average from "./UseMemo";
 // import Section from "./Section.jsx";
 // import MyComponent from "./MyCOmponent";
 // import Clock from "./Clock";
@@ -16,7 +17,8 @@ import "./App.css";
 // import InputData from "./Test";
 // import MemberInfo from "./useEffect";
 // import Counter2 from "./useReducer";
-import Study from "./Study";
+// import Study from "./Study";
+import AverageInfo from "./UseMemo";
 
 function App() {
   return (
@@ -46,7 +48,8 @@ function App() {
     // <InputData />
     // <MemberInfo />
     // <Counter2 />
-    <Study />
+    // <Study />
+    <AverageInfo />
   );
 }
 
