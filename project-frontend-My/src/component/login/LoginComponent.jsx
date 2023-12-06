@@ -79,7 +79,7 @@ export const SignUpTitle = styled.p`
   color: white;
 `;
 
-export const Input = styled.input`
+export const InputEmail = styled.input`
   outline: none;
   background-color: white;
   border: 1px solid black;
@@ -90,11 +90,24 @@ export const Input = styled.input`
   height: 5%;
   font-size: 1rem;
   color: grey;
-  margin-bottom: ${(props) => props.marginBottom || "10%"};
+  margin-bottom: ${(props) => (props.emailmsg ? "0" : "10%")};
+`;
+
+export const InputPassword = styled.input`
+  outline: none;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-sizing: border-box;
+  z-index: 200;
+  width: 100%;
+  height: 5%;
+  font-size: 1rem;
+  color: grey;
+  margin-bottom: ${(props) => (props.passwordmsg ? "0" : "10%")};
 `;
 
 export const Bottom = styled.div`
-  border: 3px solid black;
   width: 100%;
   height: 20%;
   display: flex;
@@ -122,6 +135,7 @@ export const Button = styled.button`
   background-color: #006eff;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  cursor: pointer;
 `;
 
 export const P = styled.p`
@@ -129,6 +143,7 @@ export const P = styled.p`
   margin: 0;
   padding: 0;
   color: ${(props) => props.color || "#007e5e;"};
+  cursor: ${"isCursur" ? "pointer" : "none"};
 `;
 
 // 회원가입 버튼.
@@ -149,6 +164,7 @@ export const SignUpButton = styled.div`
     background-image: url(${Signup});
     background-repeat: no-repeat;
     background-size: contain;
+    cursor: pointer;
   }
 `;
 

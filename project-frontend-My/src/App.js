@@ -1,10 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MyPage from "./pages/MyPage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignUpPage";
+import GlobalStyle from "./style/GlobalStyle";
+import Header from "./style/Header";
 
 function App() {
   return (
     <>
-      <MyPage></MyPage>
+      <GlobalStyle />
+      {/* <Header /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginPage></LoginPage>} />
+          <Route path="/signup" element={<SignupPage></SignupPage>} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

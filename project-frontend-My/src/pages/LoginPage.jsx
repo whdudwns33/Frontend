@@ -3,7 +3,8 @@ import {
   Container,
   BACKGROUND,
   LoginSginup,
-  Input,
+  InputEmail,
+  InputPassword,
   Bottom,
   Button,
   P,
@@ -12,15 +13,19 @@ import {
   SignUpButton,
   CheckInput,
 } from "../component/login/LoginComponent";
+import SignUpAxios from "../axios/SignUpAxios";
+import { useNavigate } from "react-router-dom";
 
-const MyPage = () => {
+const LoginPage = () => {
+  const navigate = useNavigate();
+
   // 이메일 패스워드 입력
   const [inputEmail, setInputEmail] = useState("");
   const [inputPw, setInputPw] = useState("");
 
   // 입력 받으면 메세지 등장, margin 제거
-  const [emailMsg, setEmailMsg] = useState(false);
-  const [passwordMsg, setPasswordMsg] = useState(false);
+  const [emailmsg, setEmailMsg] = useState(false);
+  const [passwordmsg, setPasswordMsg] = useState(false);
 
   // 오류 메시지
   const [emailMessage, setEmailMessage] = useState("");
@@ -59,6 +64,32 @@ const MyPage = () => {
     }
   };
 
+  const onClickTosign = (e) => {
+    navigate("/signup");
+  };
+
+  const onClickLogin = async () => {
+    try {
+      const res = await SignUpAxios.memberLogin(inputEmail, inputPw);
+      console.log("로그인 정보 : ", res.data);
+      if (res.data.grantType === "Bearer") {
+        console.log("AccessToken : ", res.data.accessToken);
+        const accessToken = res.data.accessToken;
+        console.log("Refreshtoken : ", res.data.refreshToken);
+        const refreshToken = res.data.refreshToken;
+        console.log("id:", res.data.accessToken.name);
+        window.localStorage.setItem("accessToken", accessToken);
+        window.localStorage.setItem("refreshToken", refreshToken);
+        alert("로그인 성공");
+        // navigate("/home");
+      } else {
+        alert("입력 정보를 확인하시오.");
+      }
+    } catch (error) {
+      alert("이메일 및 비밀번호를 확인하시오.");
+    }
+  };
+
   return (
     <>
       <Container>
@@ -67,12 +98,12 @@ const MyPage = () => {
             <div className="login">
               <div className="inline">
                 <LoginTitle>Login</LoginTitle>
-                <Input
+                <InputEmail
                   placeholder="EMAIL"
                   onFocus={onChangeEmail}
                   onChange={onChangeEmail}
-                  marginBottom={`${emailMsg ? "0" : "10%"}`}
-                ></Input>
+                  emailmsg={emailmsg}
+                ></InputEmail>
                 <CheckInput>
                   <p
                     className={`${isId ? "true" : "false"}`}
@@ -81,12 +112,13 @@ const MyPage = () => {
                     {emailMessage}
                   </p>
                 </CheckInput>
-                <Input
+                <InputPassword
+                  type="password"
                   placeholder="PASSWORD"
                   onFocus={onChangePw}
                   onChange={onChangePw}
-                  marginBottom={`${passwordMsg ? "0" : "10%"}`}
-                ></Input>
+                  passwordmsg={passwordmsg}
+                ></InputPassword>
                 <CheckInput>
                   <p
                     className={`${isPw ? "true" : "false"}`}
@@ -104,7 +136,7 @@ const MyPage = () => {
                     <img src="" alt="구글" />
                   </div>
                   <div className="login-button">
-                    <Button width="100%" height="40%">
+                    <Button width="100%" height="40%" onClick={onClickLogin}>
                       로그인
                     </Button>
                     <P>아이디 찾기</P>
@@ -115,11 +147,19 @@ const MyPage = () => {
             </div>
             <div className="signup">
               <div className="inline">
-                <SignUpTitle>Login</SignUpTitle>
-                <P>아직 회원이 아니시라면?</P>
+                <SignUpTitle>SignUp</SignUpTitle>
+                <p style={{ color: "white" }}>아직 회원이 아니시라면?</p>
                 <SignUpButton>
-                  <p>회원 가입</p>
-                  <div className="signup-img"></div>
+                  <p
+                    style={{
+                      fontSize: "1.5rem",
+                      margin: "auto",
+                      padding: "0",
+                    }}
+                  >
+                    회원 가입
+                  </p>
+                  <div className="signup-img" onClick={onClickTosign}></div>
                 </SignUpButton>
               </div>
             </div>
@@ -130,4 +170,4 @@ const MyPage = () => {
   );
 };
 
-export default MyPage;
+export default LoginPage;
