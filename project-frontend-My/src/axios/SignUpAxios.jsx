@@ -25,8 +25,10 @@ const SignUpAxios = {
   },
 
   // 이메일 인증 번호 체크
+  // email 속성 필수
   memberEpw: async (epw) => {
-    return await axios.post(Common.KH_DOMAIN + `/auth/mailConfirm?epw=${epw}`);
+    
+    return await axios.get(Common.KH_DOMAIN + `/auth/ePw?epw=${epw}`);
   },
 
   // 로그인

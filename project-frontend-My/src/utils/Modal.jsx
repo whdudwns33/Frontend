@@ -105,7 +105,6 @@ const Modal = (props) => {
               <button onClick={close}>&times;</button>
             </header>
             <main>
-              <input type="text" />
               {children}
             </main>
             <footer>

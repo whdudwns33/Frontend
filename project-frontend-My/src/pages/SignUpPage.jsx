@@ -25,8 +25,7 @@ const SignupPage = () => {
     setModal(false);
   };
 
-  // 인증번호 체크
-  const [epw, setEpw] = useState("");
+
 
   // 입력 받으면 메세지 등장, margin 제거
   const [emailmsg, setEmailMsg] = useState(false);
@@ -55,12 +54,16 @@ const SignupPage = () => {
     setInputEmail(e.target.value);
     if (!emailRegex.test(e.target.value)) {
       setEmailMessage("이메일 형식이 올바르지 않습니다.");
-      setIsId(false);
     } else {
       setEmailMessage("올바른 형식입니다.");
-      setIsId(true);
     }
   };
+
+  // 인증번호 체크
+  const [EPW, setEPW] = useState("");
+  const onChangeEPW = (e) => {
+    setEPW(e.target.value);
+  }
 
   // 비밀번호
   const [inputPassword, setInputPassword] = useState("");
@@ -152,15 +155,34 @@ const SignupPage = () => {
 
   // 이메일 인증
   const onClcikCheckEmail = async () => {
-    setModal(true);
     try {
       const res = await SignUpAxios.memberEmail(inputEmail);
-      if (res === true) {
+      if (res.data === true) {
+        setModal(true);
+
       }
     } catch (error) {
       console.log("이메일 입력:", error);
     }
   };
+
+  // 입력받은 인증번호 체크
+  const checkEPW = async() => {
+    try {
+      const res = await SignUpAxios.memberEpw(EPW);
+      if (res.data === true) {
+        setIsId(true);
+        alert("인증 성공")
+      }
+      else {
+        setIsId(false);
+        alert("인증 실패");
+      }
+    }
+    catch (error) {
+      alert("연결 실패");
+    }
+  }
 
   // 닉네임 중복 체크
   const onClickCheckNickName = async () => {
@@ -260,7 +282,11 @@ const SignupPage = () => {
                       <CheckButton onClick={onClcikCheckEmail}>
                         인증하기
                       </CheckButton>
-                      <Modal open></Modal>
+                      <Modal open = {modal} close={closeModal}>
+                        <span>인증번호를 입력하세요.  </span>
+                        <input type="text" onChange={onChangeEPW} />
+                        <button onClick={checkEPW}>확인 </button>
+                      </Modal>
                     </div>
                   </div>
 
