@@ -27,7 +27,6 @@ const SignUpAxios = {
   // 이메일 인증 번호 체크
   // email 속성 필수
   memberEpw: async (epw) => {
-    
     return await axios.get(Common.KH_DOMAIN + `/auth/ePw?epw=${epw}`);
   },
 
@@ -45,6 +44,11 @@ const SignUpAxios = {
     return await axios.get(
       Common.KH_DOMAIN + `/auth/nickName?nickName=${nickname}`
     );
+  },
+
+  // 전화번호 인증
+  memberTel: async (tel) => {
+    return await axios.get(Common.KH_DOMAIN + `/sms/send-mms?tel=${tel}`);
   },
 };
 

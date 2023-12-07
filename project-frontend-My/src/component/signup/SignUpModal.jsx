@@ -35,9 +35,10 @@ const ModalStyle = styled.div`
       background-color: #f1f1f1;
       font-weight: 700;
       button {
+        border: 3px solid red;
         position: absolute;
-        top: 15px;
-        right: 15px;
+        top: 10px;
+        right: 10px;
         width: 30px;
         font-size: 21px;
         font-weight: 700;
@@ -50,6 +51,8 @@ const ModalStyle = styled.div`
       padding: 16px;
       border-bottom: 1px solid #dee2e6;
       border-top: 1px solid #dee2e6;
+      display: flex;
+      justify-content: center;
     }
     footer {
       padding: 12px 16px;
@@ -104,9 +107,7 @@ const Modal = (props) => {
               {header}
               <button onClick={close}>&times;</button>
             </header>
-            <main>
-              {children}
-            </main>
+            <main>{children}</main>
             <footer>
               {type && <Button onClick={confirm}>확인</Button>}
               <Button onClick={close}>취소</Button>

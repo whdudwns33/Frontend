@@ -15,7 +15,8 @@ import {
 } from "../component/signup/SignUpComponent";
 import SignUpAxios from "../axios/SignUpAxios";
 import { useNavigate } from "react-router-dom";
-import Modal from "../utils/Modal";
+import Modal from "../component/signup/SignUpModal";
+import SmsApi from "../api/SmsApi";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -24,8 +25,11 @@ const SignupPage = () => {
   const closeModal = () => {
     setModal(false);
   };
-
-
+  // 인증 번호 입력창
+  const [sms, setSms] = useState(false);
+  const closeSms = () => {
+    setSms(false);
+  };
 
   // 입력 받으면 메세지 등장, margin 제거
   const [emailmsg, setEmailMsg] = useState(false);
@@ -63,7 +67,7 @@ const SignupPage = () => {
   const [EPW, setEPW] = useState("");
   const onChangeEPW = (e) => {
     setEPW(e.target.value);
-  }
+  };
 
   // 비밀번호
   const [inputPassword, setInputPassword] = useState("");
@@ -158,8 +162,8 @@ const SignupPage = () => {
     try {
       const res = await SignUpAxios.memberEmail(inputEmail);
       if (res.data === true) {
+        // 입력 모달 등장
         setModal(true);
-
       }
     } catch (error) {
       console.log("이메일 입력:", error);
@@ -167,22 +171,20 @@ const SignupPage = () => {
   };
 
   // 입력받은 인증번호 체크
-  const checkEPW = async() => {
+  const checkEPW = async () => {
     try {
       const res = await SignUpAxios.memberEpw(EPW);
       if (res.data === true) {
         setIsId(true);
-        alert("인증 성공")
-      }
-      else {
+        alert("인증 성공");
+      } else {
         setIsId(false);
         alert("인증 실패");
       }
-    }
-    catch (error) {
+    } catch (error) {
       alert("연결 실패");
     }
-  }
+  };
 
   // 닉네임 중복 체크
   const onClickCheckNickName = async () => {
@@ -198,6 +200,23 @@ const SignupPage = () => {
       }
     } catch (error) {
       alert("닉네임 입력 정보를 확인하십시오.", error);
+    }
+  };
+
+  // 휴대폰 번호 인증하기
+  const onClickCheckTel = () => {
+    setSms(true);
+  };
+
+  // SMS를 보내는 함수
+  const handleSendMessage = async () => {
+    try {
+      const res = await SignUpAxios.memberTel(tel);
+      console.log("휴대전화 번호", tel);
+      console.log(res.data);
+    } catch (error) {
+      // 오류 발생 시 처리
+      console.error("SMS 전송 실패:", error);
     }
   };
 
@@ -262,6 +281,12 @@ const SignupPage = () => {
   return (
     <>
       <Container>
+        <SmsApi
+          open={sms}
+          close={closeSms}
+          tel={tel}
+          send={handleSendMessage}
+        ></SmsApi>
         <BACKGROUND>
           <SIGNUP>
             <TOP>
@@ -282,8 +307,11 @@ const SignupPage = () => {
                       <CheckButton onClick={onClcikCheckEmail}>
                         인증하기
                       </CheckButton>
-                      <Modal open = {modal} close={closeModal}>
-                        <span>인증번호를 입력하세요.  </span>
+                      <Modal
+                        header="인증번호를 입력하세요."
+                        open={modal}
+                        close={closeModal}
+                      >
                         <input type="text" onChange={onChangeEPW} />
                         <button onClick={checkEPW}>확인 </button>
                       </Modal>
@@ -366,7 +394,9 @@ const SignupPage = () => {
                         onBlur={onChangeTel}
                         onFocus={onChangeTel}
                       ></Input>
-                      <CheckButton>인증하기</CheckButton>
+                      <CheckButton onClick={onClickCheckTel}>
+                        인증하기
+                      </CheckButton>
                     </div>
                   </div>
 
