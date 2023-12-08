@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
 import styled from "styled-components";
-import SignUpAxios from "../axios/SignUpAxios";
 
 const STYLE = styled.div`
   position: relative;
@@ -92,22 +90,13 @@ const SendButton = styled.button`
   border-radius: 10px;
   height: 40%;
   margin-left: 3%;
+  cursor: pointer;
 `;
 
 // SMS를 보내는 기능을 담당하는 함수형 컴포넌트
 const SmsApi = (props) => {
   // 속성
-  const { open, close, tel, send } = props;
-
-  // 수신자 전화번호와 SMS 내용을 관리하는 상태 변수
-  const [content, setContent] = useState("");
-
-  // 수신자 전화번호 입력값이 변경될 때의 이벤트 핸들러
-
-  // SMS 내용 입력값이 변경될 때의 이벤트 핸들러
-  const handleContentChange = (event) => {
-    setContent(event.target.value);
-  };
+  const { open, close, tel, send, cn, cnum, onChangeCnum } = props;
 
   return (
     <STYLE>
@@ -122,16 +111,17 @@ const SmsApi = (props) => {
             <div className="body-input">
               <Input type="text" value={tel} />
               {/* SMS 전송 버튼 */}
-              <SendButton onClick={send}>전송</SendButton>
+              <SendButton onClick={send}>인증번호</SendButton>
             </div>
             <div className="body-input">
               {/* SMS 내용 입력란 */}
               <Input
                 type="text"
-                value={content}
-                onChange={handleContentChange}
-                placeholder="내용 입력"
+                value={cnum}
+                onChange={onChangeCnum}
+                placeholder="인증번호 입력"
               />
+              <SendButton onClick={cn}>인증확인</SendButton>
             </div>
           </div>
           <div className="footer"></div>

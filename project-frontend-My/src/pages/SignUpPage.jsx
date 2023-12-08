@@ -17,6 +17,7 @@ import SignUpAxios from "../axios/SignUpAxios";
 import { useNavigate } from "react-router-dom";
 import Modal from "../component/signup/SignUpModal";
 import SmsApi from "../api/SmsApi";
+import KakaoAddr from "../api/KakaoAddrApi";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -25,10 +26,20 @@ const SignupPage = () => {
   const closeModal = () => {
     setModal(false);
   };
-  // 인증 번호 입력창
+
+  // 인증 번호 입력창 제어
   const [sms, setSms] = useState(false);
   const closeSms = () => {
     setSms(false);
+  };
+
+  // 주소 입력창 제어
+  const [kakaoModal, setKakao] = useState(false);
+  const openKakao = () => {
+    setKakao(true);
+  };
+  const closeKakao = () => {
+    setKakao(false);
   };
 
   // 입력 받으면 메세지 등장, margin 제거
@@ -125,10 +136,19 @@ const SignupPage = () => {
 
   // 주소
   const [addr, setAddr] = useState("");
-  const onChangeAddr = (e) => {
-    setAddr(e.target.value);
-    // console.log("addr :", addr);
-    setIsAddr(true);
+  const onChangeAddr = (selectedAddress) => {
+    setAddr(selectedAddress);
+    console.log("주소", addr);
+  };
+  // 상세 주소
+  const [addrDetail, setAddrDetail] = useState("");
+  const onChangeAddrDetail = (selectedDetailAddress) => {
+    setAddrDetail(selectedDetailAddress);
+    console.log("상세 주소 : ", addrDetail);
+  };
+  // 주소창 열기
+  const onClickAddr = () => {
+    setKakao(true);
   };
 
   // 휴대전화 번호
@@ -137,6 +157,12 @@ const SignupPage = () => {
     setTel(e.target.value);
     // console.log("tel:", tel);
     setIsTel(true);
+  };
+
+  // 인증 번호
+  const [cnum, setCnum] = useState("");
+  const onChangeCnum = (event) => {
+    setCnum(event.target.value);
   };
 
   // 성별 선택
@@ -214,9 +240,32 @@ const SignupPage = () => {
       const res = await SignUpAxios.memberTel(tel);
       console.log("휴대전화 번호", tel);
       console.log(res.data);
+      if (res.data.statusCode === "2000") {
+        alert("문자가 발송되었습니다.");
+      } else {
+        alert("전화 번호를 확인하십시오!!");
+      }
     } catch (error) {
       // 오류 발생 시 처리
+      alert("연결이 불안정합니다.");
       console.error("SMS 전송 실패:", error);
+    }
+  };
+
+  // 인증 번호를 보내는 함수
+  const handleSendCnum = async () => {
+    try {
+      const res = await SignUpAxios.memberTelAuth(cnum);
+      if (res.data === true) {
+        alert("인증 성공");
+        setIsTel(true);
+      } else {
+        alert("인증 실패");
+        setIsTel(false);
+      }
+    } catch (error) {
+      console.log("인증 연결 실패", error);
+      setIsTel(false);
     }
   };
 
@@ -286,6 +335,8 @@ const SignupPage = () => {
           close={closeSms}
           tel={tel}
           send={handleSendMessage}
+          cn={handleSendCnum}
+          onChangeCnum={onChangeCnum}
         ></SmsApi>
         <BACKGROUND>
           <SIGNUP>
@@ -374,14 +425,24 @@ const SignupPage = () => {
                   </div>
                   <div className="input-session1">
                     <div className="input-session1-top">
+                      {/* 주소 제목 */}
                       <InputTitle>주소</InputTitle>
                     </div>
                     <div className="input-session1-bottom">
                       <Input
-                        onChange={onChangeAddr}
-                        onBlur={onChangeAddr}
+                        // onChange={onChangeAddr}
+                        // onBlur={onChangeAddr}
+                        onClick={onClickAddr}
                       ></Input>
-                      <CheckButton>주소찾기</CheckButton>
+                      <CheckButton onClick={openKakao}>주소찾기</CheckButton>
+
+                      {/* 카카오 주소 찾기 */}
+                      <KakaoAddr
+                        kakao={kakaoModal}
+                        close={closeKakao}
+                        onAddress={setAddr}
+                        onDetailAddress={setAddrDetail}
+                      ></KakaoAddr>
                     </div>
                   </div>
                   <div className="input-session1">

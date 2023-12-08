@@ -46,9 +46,14 @@ const SignUpAxios = {
     );
   },
 
-  // 전화번호 인증
+  // 전화번호 인증번호 받기
   memberTel: async (tel) => {
     return await axios.get(Common.KH_DOMAIN + `/sms/send-mms?tel=${tel}`);
+  },
+
+  // 인증번호 확인
+  memberTelAuth: async (cnum) => {
+    return await axios.get(Common.KH_DOMAIN + `/sms/check?cnum=${cnum}`);
   },
 };
 
