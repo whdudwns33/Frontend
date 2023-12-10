@@ -15,6 +15,8 @@ import {
 } from "../component/login/LoginComponent";
 import SignUpAxios from "../axios/SignUpAxios";
 import { useNavigate } from "react-router-dom";
+import KakaoLogin from "../api/KakaoLoginApi";
+import Common from "../utils/Common";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -22,6 +24,14 @@ const LoginPage = () => {
   // 이메일 패스워드 입력
   const [inputEmail, setInputEmail] = useState("");
   const [inputPw, setInputPw] = useState("");
+
+  // 카카오 로그인
+  const apiKey = Common.API_KEY;
+  const redirectUrl = Common.REDIRECT_URL;
+  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${apiKey}&redirect_uri=${redirectUrl}&response_type=code`;
+  const loginHandler = () => {
+    window.location.href = link;
+  };
 
   // 입력 받으면 메세지 등장, margin 제거
   const [emailmsg, setEmailMsg] = useState(false);
@@ -130,7 +140,7 @@ const LoginPage = () => {
 
                 <Bottom>
                   <div className="login-button">
-                    <img src="" alt="카카오" />
+                    <img src="" alt="카카오" onClick={loginHandler} />
                   </div>
                   <div className="login-button">
                     <img src="" alt="구글" />

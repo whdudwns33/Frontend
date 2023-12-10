@@ -104,9 +104,6 @@ const KakaoAddr = (props) => {
         // R타입이 true
         if (data.addressType === "R") {
           setAddress(data.address);
-          // 새로운 prop으로 전달된 콜백 함수 호출
-          // props = data.address;
-          // props.onAddressSelect(data.address);
         } else {
           alert("주소를 다시 입력하시오.");
         }

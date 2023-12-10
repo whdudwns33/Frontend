@@ -1,6 +1,7 @@
 import axios from "axios";
 import Common from "../utils/Common";
 
+// 로그인, 회원가입 axios 모음
 const SignUpAxios = {
   // 회원가입
   signup: async (email, password, NickName, name, addr, tel, gender, age) => {
@@ -37,6 +38,33 @@ const SignUpAxios = {
       password: password,
     };
     return await axios.post(Common.KH_DOMAIN + "/auth/login", login);
+  },
+
+  // 카카오 토큰 발급
+  kakaoLogin: async (code) => {
+    const kakaoToken = {
+      grant_type: "authorization_code",
+      client_id: Common.API_KEY,
+      redirect_uri: Common.REDIRECT_URL,
+      code: code,
+      client_secret: Common.SECRET_KEY,
+    };
+    return await axios.post("https://kauth.kakao.com/oauth/token", kakaoToken, {
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+      },
+    });
+  },
+
+  // 카카오 사용자 정보 가져오기
+  kakaoUser: async () => {
+    const accessToken = window.localStorage.getItem("access_token");
+    return await axios.get("https://kapi.kakao.com/v2/user/me	", {
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
   },
 
   // 닉네임 중복 체크
