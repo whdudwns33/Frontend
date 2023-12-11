@@ -42,18 +42,7 @@ const SignUpAxios = {
 
   // 카카오 토큰 발급
   kakaoLogin: async (code) => {
-    const kakaoToken = {
-      grant_type: "authorization_code",
-      client_id: Common.API_KEY,
-      redirect_uri: Common.REDIRECT_URL,
-      code: code,
-      client_secret: Common.SECRET_KEY,
-    };
-    return await axios.post("https://kauth.kakao.com/oauth/token", kakaoToken, {
-      headers: {
-        "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
-      },
-    });
+    return await axios.get(Common.KH_DOMAIN + `/auth/kakao?code=${code}`);
   },
 
   // 카카오 사용자 정보 가져오기
