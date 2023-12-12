@@ -84,6 +84,7 @@ const Button = styled.button`
 
 // 카카오 주소 찾기
 const KakaoAddr = (props) => {
+  const [isTrue, setIsTrue] = useState(false);
   // 카카오 props
   const { kakao, close, onAddress, onDetailAddress } = props;
 
@@ -96,19 +97,15 @@ const KakaoAddr = (props) => {
   };
 
   // 주소 입력
-  const handleComplete = () => {
-    new window.daum.Postcode({
-      oncomplete: (data) => {
-        // 선택한 주소 정보 처리
-        console.log(data);
-        // R타입이 true
-        if (data.addressType === "R") {
-          setAddress(data.address);
-        } else {
-          alert("주소를 다시 입력하시오.");
-        }
-      },
-    }).open();
+  const handleComplete = (data) => {
+    // 선택한 주소 정보 처리
+    console.log(data);
+    // R타입이 true
+    if (data.addressType === "R") {
+      setAddress(data.address);
+    } else {
+      alert("주소를 다시 입력하시오.");
+    }
   };
 
   //
@@ -144,11 +141,12 @@ const KakaoAddr = (props) => {
             <div className="body-section">
               <Input
                 type="text"
-                onClick={handleComplete}
+                onClick={() => setIsTrue(true)}
                 placeholder="주소를 입력합니다."
                 value={address}
               />
-              <Button onClick={handleComplete}>주소 찾기</Button>
+              <Button onClick={() => setIsTrue(true)}>주소 찾기</Button>
+              {isTrue && <DaumPostcode onComplete={handleComplete} />}
             </div>
             <div className="body-section">
               <Input
