@@ -42,14 +42,6 @@ const SignupPage = () => {
     setKakao(false);
   };
 
-  // 입력 받으면 메세지 등장, margin 제거
-  const [emailmsg, setEmailMsg] = useState(false);
-  const [passwordmsg, setPasswordMsg] = useState(false);
-
-  // 오류 메시지
-  const [emailMessage, setEmailMessage] = useState("");
-  const [pwMessage, setPwMessage] = useState("");
-
   // 유효성 검사
   const [isId, setIsId] = useState(false);
   const [isPw, setIsPw] = useState(false);
@@ -64,13 +56,12 @@ const SignupPage = () => {
   // 이메일
   const [inputEmail, setInputEmail] = useState("");
   const onChangeEmail = (e) => {
-    setEmailMsg(true);
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     setInputEmail(e.target.value);
     if (!emailRegex.test(e.target.value)) {
-      setEmailMessage("이메일 형식이 올바르지 않습니다.");
+      // alert("이메일 형식이 올바르지 않습니다.");
     } else {
-      setEmailMessage("올바른 형식입니다.");
+      // alert("올바른 형식입니다.");
     }
   };
 
@@ -85,16 +76,15 @@ const SignupPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   // 비밀번호 입력
   const onChangePassword = (e) => {
-    setPasswordMsg(true);
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
     const passwordCurrent = e.target.value;
-    // console.log("passwordCurrent:", passwordCurrent);
+    console.log("passwordCurrent:", passwordCurrent);
     setInputPassword(passwordCurrent);
     if (!passwordRegex.test(passwordCurrent)) {
-      setPwMessage("숫자+영문자+특수문자 조합으로 8자리 이상 입력해주십시오.");
+      // alert("숫자+영문자+특수문자 조합으로 8자리 이상 입력해주십시오.");
       setIsPw(false);
     } else {
-      setPwMessage("유효한 비밀번호입니다.");
+      // alert("유효한 비밀번호입니다.");
     }
   };
   // 비밀번호 확인
@@ -136,19 +126,16 @@ const SignupPage = () => {
 
   // 주소
   const [addr, setAddr] = useState("");
-  const onChangeAddr = (selectedAddress) => {
-    setAddr(selectedAddress);
-    console.log("주소", addr);
-  };
   // 상세 주소
   const [addrDetail, setAddrDetail] = useState("");
-  const onChangeAddrDetail = (selectedDetailAddress) => {
-    setAddrDetail(selectedDetailAddress);
-    console.log("상세 주소 : ", addrDetail);
-  };
   // 주소창 열기
   const onClickAddr = () => {
     setKakao(true);
+    if (addr !== null) {
+      setIsAddr(true);
+    } else {
+      console.log("주소를 입력하시오.");
+    }
   };
 
   // 휴대전화 번호
@@ -192,6 +179,7 @@ const SignupPage = () => {
         setModal(true);
       }
     } catch (error) {
+      alert("이메일을 확인 하십시오!");
       console.log("이메일 입력:", error);
     }
   };
@@ -216,6 +204,7 @@ const SignupPage = () => {
   const onClickCheckNickName = async () => {
     try {
       const checkNickName = await SignUpAxios.memberNickname(nickName);
+      // 중복이 없어야 true 설정. false를 받아야 중복이 없는것.
       console.log(checkNickName.data);
       if (checkNickName.data === true) {
         alert("이미 존재하는 닉네임입니다.");
@@ -278,6 +267,7 @@ const SignupPage = () => {
         nickName !== "" &&
         name !== "" &&
         addr !== "" &&
+        addrDetail !== "" &&
         tel !== "" &&
         gender !== "" &&
         age !== ""
@@ -288,10 +278,12 @@ const SignupPage = () => {
           nickName,
           name,
           addr,
+          addrDetail,
           tel,
           gender,
           age
         );
+        console.log("회원 패스워드", inputPassword);
         console.log("회원가입 결과 : ", res);
         if (res.status === 200) {
           alert("회원가입에 성공하셨습니다.");
@@ -433,6 +425,7 @@ const SignupPage = () => {
                         // onChange={onChangeAddr}
                         // onBlur={onChangeAddr}
                         onClick={onClickAddr}
+                        value={addr + " " + addrDetail}
                       ></Input>
                       <CheckButton onClick={openKakao}>주소찾기</CheckButton>
 

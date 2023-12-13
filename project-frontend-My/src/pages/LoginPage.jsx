@@ -83,12 +83,17 @@ const LoginPage = () => {
       const res = await SignUpAxios.memberLogin(inputEmail, inputPw);
       console.log("로그인 정보 : ", res.data);
       if (res.data.grantType === "Bearer") {
+        //
+        // 이메일 저장.
+        window.localStorage.setItem("email", inputEmail);
+        // 엑세스 토큰 저장
         console.log("AccessToken : ", res.data.accessToken);
         const accessToken = res.data.accessToken;
+        window.localStorage.setItem("accessToken", accessToken);
+        // 리프레쉬 토큰 저장
         console.log("Refreshtoken : ", res.data.refreshToken);
         const refreshToken = res.data.refreshToken;
         console.log("id:", res.data.accessToken.name);
-        window.localStorage.setItem("accessToken", accessToken);
         window.localStorage.setItem("refreshToken", refreshToken);
         alert("로그인 성공");
         // navigate("/home");

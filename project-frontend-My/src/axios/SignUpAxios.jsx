@@ -4,16 +4,27 @@ import Common from "../utils/Common";
 // 로그인, 회원가입 axios 모음
 const SignUpAxios = {
   // 회원가입
-  signup: async (email, password, NickName, name, addr, tel, gender, age) => {
+  signup: async (
+    email,
+    password,
+    NickName,
+    name,
+    addr,
+    addrDetale,
+    tel,
+    gender,
+    age
+  ) => {
     const member = {
-      email: email,
-      password: password,
-      nickName: NickName,
-      name: name,
-      addr: addr,
-      tel: tel,
-      gender: gender,
-      age: age,
+      userEmail: email,
+      userPassword: password,
+      userNickname: NickName,
+      userName: name,
+      userAddr: addr,
+      userAddrDetale: addrDetale,
+      userPhone: tel,
+      userGen: gender,
+      userAge: age,
     };
     return await axios.post(Common.KH_DOMAIN + "/auth/sign", member);
   },
@@ -39,8 +50,8 @@ const SignUpAxios = {
   // 로그인
   memberLogin: async (email, password) => {
     const login = {
-      email: email,
-      password: password,
+      userEmail: email,
+      userPassword: password,
     };
     return await axios.post(Common.KH_DOMAIN + "/auth/login", login);
   },

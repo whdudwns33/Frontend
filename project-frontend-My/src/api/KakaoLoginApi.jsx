@@ -48,8 +48,6 @@ const KakaoLogin = () => {
       console.log("카카오 로그인 연결 실패 : ", error);
     }
   };
-
-  // const email = window.localStorage.getItem("email");
 };
 
 export default KakaoLogin;

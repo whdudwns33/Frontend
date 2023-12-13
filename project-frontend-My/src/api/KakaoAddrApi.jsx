@@ -67,6 +67,21 @@ const KAKAO = styled.div`
   }
 `;
 
+const PostContainer = styled.div`
+  position: absolute;
+  width: 40%;
+`;
+
+const Post = styled.div`
+  width: 100%;
+  height: 100%;
+  border: 3px solid red;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Input = styled.input`
   border: none;
   border-radius: 20px;
@@ -145,8 +160,15 @@ const KakaoAddr = (props) => {
                 placeholder="주소를 입력합니다."
                 value={address}
               />
+              {isTrue && (
+                <Post>
+                  <PostContainer>
+                    <DaumPostcode onComplete={handleComplete} />
+                  </PostContainer>
+                </Post>
+              )}
+
               <Button onClick={() => setIsTrue(true)}>주소 찾기</Button>
-              {isTrue && <DaumPostcode onComplete={handleComplete} />}
             </div>
             <div className="body-section">
               <Input
