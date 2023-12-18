@@ -15,7 +15,6 @@ import {
 } from "../component/login/LoginComponent";
 import SignUpAxios from "../axios/SignUpAxios";
 import { useNavigate } from "react-router-dom";
-import KakaoLogin from "../api/KakaoLoginApi";
 import Common from "../utils/Common";
 
 const LoginPage = () => {
@@ -79,11 +78,13 @@ const LoginPage = () => {
   };
 
   const onClickLogin = async () => {
+    // 로컬 스토리지 비우기
+    window.localStorage.clear();
     try {
       const res = await SignUpAxios.memberLogin(inputEmail, inputPw);
       console.log("로그인 정보 : ", res.data);
       if (res.data.grantType === "Bearer") {
-        //
+        // 이메일 불러오는 함수 만들기 보류 중
         // 이메일 저장.
         window.localStorage.setItem("email", inputEmail);
         // 엑세스 토큰 저장
@@ -93,15 +94,16 @@ const LoginPage = () => {
         // 리프레쉬 토큰 저장
         console.log("Refreshtoken : ", res.data.refreshToken);
         const refreshToken = res.data.refreshToken;
-        console.log("id:", res.data.accessToken.name);
+        // console.log("토큰의 id:", res.data.accessToken.name);
         window.localStorage.setItem("refreshToken", refreshToken);
         alert("로그인 성공");
-        // navigate("/home");
+        // 로그인 성공 시 메인 페이지로 이동
+        navigate("/");
       } else {
         alert("입력 정보를 확인하시오.");
       }
     } catch (error) {
-      alert("이메일 및 비밀번호를 확인하시오.");
+      alert("네트 워크 연결이 불안정합니다.");
     }
   };
 

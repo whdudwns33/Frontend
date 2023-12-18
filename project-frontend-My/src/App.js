@@ -1,27 +1,47 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignUpPage";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
+import Header from "./style/Header";
 import GlobalStyle from "./style/GlobalStyle";
+import Footer from "./style/Footer";
+import Performance from "./pages/performance/Performance";
+import PerformanceDetail from "./pages/performance/PerformanceDetail";
 import KakaoLogin from "./api/KakaoLoginApi";
 import MainPage from "./pages/MainPage";
-import Header from "./style/Header";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignUpPage";
+import MusicInfo from "./pages/MusicPage/MusicInfoPage";
+import MusicRegistPage from "./pages/MusicPage/MusicRegistPage";
+import MusicList from "./pages/MusicPage/MusicListPage";
+import Test from "./pages/SimpleTest";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      {/* <Header /> */}
-      <BrowserRouter>
+      <Router>
+        <Header />
+
         <Routes>
-          {/* 임시 */}
-          <Route path="/main" element={<MainPage></MainPage>} />
-          <Route path="/" element={<LoginPage></LoginPage>} />
+          <Route path="/performance" element={<Performance />} />
+          <Route
+            path="/PerformanceDetail/:id"
+            element={<PerformanceDetail />}
+          />
+          <Route path="/" element={<MainPage></MainPage>} />
+          <Route path="/login" element={<LoginPage></LoginPage>} />
           <Route path="/signup" element={<SignupPage></SignupPage>} />
           <Route path="/kakao" element={<KakaoLogin></KakaoLogin>} />
+          <Route
+            path="/music-regist"
+            element={<MusicRegistPage></MusicRegistPage>}
+          />
+          <Route path="/music-list" element={<MusicList></MusicList>} />
+          <Route path="/music-info" element={<MusicInfo></MusicInfo>} />
+          <Route path="/test" element={<Test></Test>} />
         </Routes>
-      </BrowserRouter>
+        <Footer />
+      </Router>
     </>
   );
 }
-
 export default App;

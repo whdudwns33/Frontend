@@ -4,7 +4,6 @@ const GlobalStyle = createGlobalStyle`
     body {
         margin: 0px;
         padding: 0px;
-        box-sizing: border-box;
         font-family: 'Noto Sans KR', sans-serif;
     }
 
