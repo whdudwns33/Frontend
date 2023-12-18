@@ -1,6 +1,0 @@
-// 재사용 되는 스타일 적용(함수와 거의 같음)
-@mixin square($size) {
-  $calculated: 32px * $size;
-  width: $calculated;
-  height: $calculated;
-}
