@@ -2,6 +2,7 @@
 import KakaomapComponent from "../../component/performance/KakaomapComponent";
 import GlobalStyle from "../../style/GlobalStyle";
 import {
+  MediaStyle,
   Container,
   SearchBanner,
   Box,
@@ -12,12 +13,19 @@ import PerformanceList from "../../component/performance/PerformanceList";
 import { useEffect, useState } from "react";
 import AxiosApi from "../../axios/PerformanceAxios";
 import { useNavigate } from "react-router-dom";
+import MainAxios from "../../axios/MainAxios";
+import ModalComponent from "../../utils/ModalComponent";
 
 const Performance = () => {
   const [inputValue, setInputValue] = useState(""); // 입력필드에 입력값을 저장
   const [searchTerm, setSearchTerm] = useState(""); // 실제 검색을 수행할 검색어를 저장(검색버튼을 통해 검색할 데이터와 입력데이터를 분리)
   const [performanceList, setPerformanceList] = useState([]); // AxiosApi로 가져온 공연데이터를 저장
   const [filteredPerformanceList, setFilteredPerformanceList] = useState([]); // 필터링된 공연 데이터를 저장 .
+  const [selectedVenue, setSelectedVenue] = useState(null); // 선택된 공연장을 저장
+
+  const handleCardMouseOver = (venue) => {
+    setSelectedVenue(venue);
+  };
 
   const navigate = useNavigate();
 
@@ -25,8 +33,9 @@ const Performance = () => {
     // 컴포넌트가 마운트될 때 공연 데이터를 불러옵니다.
     const fetchPerformanceList = async () => {
       try {
-        const response = await AxiosApi.getPerformanceList();
+        const response = await MainAxios.notLoginPerformList();
         setPerformanceList(response.data);
+        console.log(response.data);
         console.log(performanceList);
       } catch (error) {
         console.error("Error fetching performance list", error);
@@ -40,8 +49,9 @@ const Performance = () => {
     const filtered = performanceList
       .filter(
         (performance) =>
-          performance.performanceName.includes(searchTerm) ||
-          performance.performer.includes(searchTerm) // 공연명 또는 공연자명에 검색어가 포함되어 있을 경우 필터링
+          performance.performanceName.includes(searchTerm) 
+        //   ||
+        //   performance.performer.includes(searchTerm) // 공연명 또는 공연자명에 검색어가 포함되어 있을 경우 필터링
       )
       .sort(
         (a, b) => new Date(b.performanceDate) - new Date(a.performanceDate)
@@ -76,6 +86,7 @@ const Performance = () => {
   return (
     <>
       <GlobalStyle />
+      <MediaStyle/>
       <Container>
         <SearchBanner>
           <Box>
@@ -94,10 +105,10 @@ const Performance = () => {
           </Box>
         </SearchBanner>
         <Map>
-          <KakaomapComponent performanceList={filteredPerformanceList} />
+          <KakaomapComponent performanceList={filteredPerformanceList} selectedVenue={selectedVenue} />
         </Map>
         <div className="title">내 근처 공연</div>
-        <PerformanceList performanceList={filteredPerformanceList} />
+        <PerformanceList performanceList={filteredPerformanceList} onCardMouseOver={handleCardMouseOver} />
       </Container>
     </>
   );

@@ -5,13 +5,16 @@ import GlobalStyle from "./style/GlobalStyle";
 import Footer from "./style/Footer";
 import Performance from "./pages/performance/Performance";
 import PerformanceDetail from "./pages/performance/PerformanceDetail";
+import PerformanceUpdate from "./pages/performance/PerformanceUpdate";
 import KakaoLogin from "./api/KakaoLoginApi";
 import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignUpPage";
-import MusicInfo from "./pages/MusicPage/MusicInfoPage";
-import MusicRegistPage from "./pages/MusicPage/MusicRegistPage";
-import MusicList from "./pages/MusicPage/MusicListPage";
+import MusicInfo from "./pages/musicPage/MusicInfoPage";
+import MusicRegistPage from "./pages/musicPage/MusicRegistPage";
+import MusicList from "./pages/musicPage/MusicListPage";
+import CommunityPage from "./pages/CommunityPage";
+import MyPage from "./pages/MyPage";
 import Test from "./pages/SimpleTest";
 
 function App() {
@@ -23,6 +26,7 @@ function App() {
 
         <Routes>
           <Route path="/performance" element={<Performance />} />
+          <Route path="/PerformanceUpdate" element={<PerformanceUpdate />} />
           <Route
             path="/PerformanceDetail/:id"
             element={<PerformanceDetail />}
@@ -36,7 +40,12 @@ function App() {
             element={<MusicRegistPage></MusicRegistPage>}
           />
           <Route path="/music-list" element={<MusicList></MusicList>} />
-          <Route path="/music-info" element={<MusicInfo></MusicInfo>} />
+          <Route path="/music-info/:id" element={<MusicInfo></MusicInfo>} />
+          <Route
+            path="/communitypage"
+            element={<CommunityPage></CommunityPage>}
+          />
+          <Route path="/mypage" element={<MyPage></MyPage>} />
           <Route path="/test" element={<Test></Test>} />
         </Routes>
         <Footer />
